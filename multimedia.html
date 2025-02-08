@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Multimedia</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+
+    <style>
+      :root {
+        --bg-gradient-start: #fffee7; 
+        --bg-gradient-end:   #fffbd1; 
+
+        --header-footer-start: #fffbd1;
+        --header-footer-end:   #fff5a8;
+
+        --nav-gradient-start: #fff5a8;
+        --nav-gradient-end:   #fff1a0;
+
+        --content-gradient-start: #fffee7;
+        --content-gradient-end:   #fffbd1;
+
+        --text-color:      #5a5a2e; /* Mezcla de gris y marrón para contraste */
+        --nav-link-color:  #5b4b1f; 
+        --nav-link-hover:  #fff8d3;
+
+        --title-color:     #5b4b1f;
+
+        --box-border-radius: 25px;
+        --shadow-color:       rgba(0, 0, 0, 0.15);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 100%;
+        min-height: 100%;
+        background: linear-gradient(
+          to bottom right,
+          var(--bg-gradient-start),
+          var(--bg-gradient-end)
+        );
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text-color);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+
+      .cv-wrapper {
+        width: 90%;
+        max-width: 1200px;
+        margin: 20px auto;
+        border-radius: var(--box-border-radius);
+        box-shadow: 0 0 20px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background: #ffffff;
+        /* Aplicar la animación */
+        animation: fadeIn 1.2s ease-in-out;
+      }
+
+      header,
+      footer {
+        background: linear-gradient(
+          to right,
+          var(--header-footer-start),
+          var(--header-footer-end)
+        );
+        border-radius: var(--box-border-radius);
+        text-align: center;
+        padding: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      footer {
+        margin-top: 20px;
+        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      header h1 {
+        color: var(--title-color);
+        font-size: 2rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        transition: color 0.3s ease;
+      }
+      header h1:hover {
+        color: #fffbd1;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      nav {
+        width: 220px;
+        background: linear-gradient(
+          to bottom left,
+          var(--nav-gradient-start),
+          var(--nav-gradient-end)
+        );
+        border-radius: var(--box-border-radius);
+        padding: 20px;
+        box-shadow: 0 4px 6px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+      }
+
+      nav h2 {
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+        color: var(--title-color);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      nav ul {
+        list-style: disc;
+        padding-left: 1.2rem;
+      }
+      nav ul li::marker {
+        color: var(--title-color);
+      }
+      nav ul li {
+        margin-bottom: 10px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: var(--nav-link-color);
+        font-weight: bold;
+        text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+      nav ul li a:hover {
+        color: var(--nav-link-hover);
+        transform: scale(1.03);
+      }
+
+      main {
+        flex: 1;
+        background: linear-gradient(
+          135deg,
+          var(--content-gradient-start) 0%,
+          var(--content-gradient-end) 100%
+        );
+        border-radius: var(--box-border-radius);
+        padding: 20px;
+        box-shadow: 0 4px 10px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .media-section {
+        margin-bottom: 20px;
+      }
+      .media-section h2 {
+        margin-bottom: 10px;
+        color: var(--title-color);
+        font-size: 1.5rem;
+      }
+      .media-section p {
+        margin-bottom: 10px;
+      }
+
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      .gallery img {
+        width: 250px;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+      }
+      .gallery img:hover {
+        transform: scale(1.05);
+      }
+
+      .media-wrapper {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      video, audio {
+        max-width: 100%;
+        border-radius: 8px;
+      }
+
+      footer a {
+        text-decoration: none;
+        color: var(--title-color);
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        transition: color 0.3s ease;
+      }
+      footer a:hover {
+        color: #fffbd1;
+      }
+
+      @media (max-width: 768px) {
+        .content {
+          flex-direction: column;
+        }
+        nav {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+        nav ul {
+          list-style: none;
+          padding-left: 0;  
+          display: flex;   
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        nav ul li {
+          margin: 0 10px;
+        }
+        .gallery img {
+          width: 150px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="cv-wrapper">
+      <header>
+        <h1>Multimedia sobre Mí</h1>
+      </header>
+
+      <div class="content">
+        <nav>
+            <h2>Índice</h2>
+            <ul>
+              <li><a href="curriculo.html">Curriculum</a></li>
+              <li><a href="horario.html">Horario</a></li>
+              <li><a href="datospersonales.html">Datos Personales</a></li>
+              <li>
+                <a href="modulos.html">
+                  Módulos 1º DAM
+                </a>
+                <a 
+                  href="#"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#modulos1dam"
+                  aria-expanded="false"
+                  aria-controls="modulos1dam">
+                  <span class="arrow">▼</span>
+                </a>
+                <ul class="collapse" id="modulos1dam">
+                  <li><a href="programacion.html" target="_blank">Programación</a></li>
+                  <li><a href="basesdedatos.html" target="_blank">Bases De Datos</a></li>
+                  <li><a href="entornosdedesarrollo.html" target="_blank">Entornos De Desarrollo</a></li>
+                  <li><a href="lenguajedemarcas.html" target="_blank">Lenguajes De Marcas</a></li>
+                  <li><a href="sistemasinformaticos.html" target="_blank">Sistemas Informáticos</a></li>
+                  <li><a href="sostenibilidad.html" target="_blank">Sostenibilidad</a></li>
+                  <li><a href="digitalizacion.html" target="_blank">Digitalización</a></li>
+                  <li><a href="ipe.html" target="_blank">Itinerario Personal</a></li>
+                </ul>
+              </li>
+              <li><a href="aficiones.html">Aficiones</a></li>
+              <li><a href="sitiosdereferencia.html">Sitios de Referencia</a></li>
+              <li><a href="multimedia.html">Multimedia Sobre Mí</a></li>
+              <li><a href="formulario.html">Formulario</a></li>
+              <li><a href="cambios.html">¿Cómo se hizo el trabajo?</a></li>
+            </ul>
+          </nav>
+
+        <main>
+          <article class="media-section">
+            <h2>Galería de Imágenes</h2>
+            <p>
+              A continuación os muestro algunas fotografías personales, con gente que me importa o con cosas que me interesan. 
+              En la primera foto aparezco con mi pareja, él es mi compañero y mi mejor amigo. En la segunda foto aparece mi perro, 
+              que es el ser al que más quiero, se llama Horus. Y por último, en la tercer foto se ve la playa, que es mi lugar favorito 
+              en el mundo, además de noche. Allí se respira paz.
+            </p>
+            <div class="gallery">
+              <img src="imagenes/lean.JPG" alt="Foto 1" />
+              <img src="imagenes/horus.jpg" alt="Foto 2" />
+              <img src="imagenes/playa.JPG" alt="Foto 3" />
+            </div>
+          </article>
+
+          <article class="media-section">
+            <h2>Mis Vídeos</h2>
+            <p>
+              En el siguiente vídeo hago una pequeña introducción a este portfolio, dando la bienvenida.
+            </p>
+            <div class="media-wrapper">             
+              <video controls width="400" poster="imagenes/postervideo.jpg">
+                <source src="imagenes/video.MOV" type="video/mp4" />
+              </video>
+            </div>
+          </article>
+
+          <article class="media-section">
+            <h2>Audios</h2>
+            <p>
+              En esta sección, he hecho una pequeña grabación en la que explico un poco de mi trayectoria estudiantil a lo largo de los años,
+              y como fue que acabé en el grado superior de DAM después de haber casi acabado la carrera de Psicología.
+            </p>
+            <div class="media-wrapper">
+              <audio controls>
+                <source src="imagenes/audio.m4a" type="audio/mpeg" />
+              </audio>
+            </div>
+          </article>
+        </main>
+      </div>
+
+      <footer>
+        <p>
+          <a href="index.html">Volver a la página de inicio</a>
+        </p>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html> 
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Horario</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+
+    <style>
+      
+      :root {
+        
+        --bg-gradient-start: #f4f9fc; 
+        --bg-gradient-end:   #e3f2fc; 
+
+        
+        --header-footer-start: #a1c6e9; 
+        --header-footer-end:   #82bbe0;
+
+        
+        --nav-gradient-start: #82bbe0;
+        --nav-gradient-end:   #a1c6e9;
+
+        
+        --content-gradient-start: #f4f9fc; 
+        --content-gradient-end:   #e3f2fc;
+
+        
+        --title-pastel: #82bbe0;  
+        --text-color:   #174d6e;   
+
+        
+        --nav-link-color: #ffffff;   
+        --nav-link-hover: #cfe3f3;   
+
+        
+        --title-color: #ffffff;
+
+        
+        --box-border-radius: 25px;
+        --shadow-color: rgba(0, 0, 0, 0.15);
+      }
+
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html, body {
+        width: 100%;
+        min-height: 100%;
+        
+        background: linear-gradient(
+          to bottom right,
+          var(--bg-gradient-start),
+          var(--bg-gradient-end)
+        );
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text-color);
+      }
+
+      
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+
+      .cv-wrapper {
+        width: 80%;
+        max-width: 1400px;
+        margin: 20px auto;
+        border-radius: var(--box-border-radius);
+        box-shadow: 0 0 20px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background: #ffffff;
+        animation: fadeIn 1.2s ease-in-out; 
+      }
+
+      
+      header, footer {
+        background: linear-gradient(
+          to right,
+          var(--header-footer-start),
+          var(--header-footer-end)
+        );
+        border-radius: var(--box-border-radius);
+        text-align: center;
+        padding: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      footer {
+        margin-top: 20px;
+        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      header h1 {
+        color: var(--title-color);
+        font-size: 2rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        
+        transition: color 0.3s ease;
+      }
+      header h1:hover {
+        color: #f4f9fc; 
+      }
+
+      
+      .content {
+        display: flex;
+        flex-direction: row; 
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      
+      nav {
+        width: 220px;
+        background: linear-gradient(
+          to bottom left,
+          var(--nav-gradient-start),
+          var(--nav-gradient-end)
+        );
+        border-radius: var(--box-border-radius);
+        padding: 20px;
+        box-shadow: 0 4px 6px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        
+        transition: all 0.3s ease;
+      }
+
+      nav h2 {
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+        color: var(--title-pastel);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      nav ul {
+        list-style: disc;
+        padding-left: 1.2rem;
+      }
+      nav ul li::marker {
+        color: var(--title-pastel);
+      }
+      nav ul li {
+        margin-bottom: 10px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: var(--nav-link-color);
+        font-weight: bold;
+        text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+      nav ul li a:hover {
+        color: var(--nav-link-hover);
+        transform: scale(1.03);
+      }
+
+      
+      .arrow {
+        display: inline-block;
+        margin-left: 5px;
+        transition: transform 0.3s ease;
+      }
+      
+      nav ul li a[aria-expanded="true"] .arrow {
+        transform: rotate(180deg);
+      }
+
+      
+      nav ul li ul {
+        margin-top: 10px;
+        padding-left: 15px;
+      }
+      nav ul li ul li {
+        margin-bottom: 8px;
+      }      
+      section {
+        flex: 1; 
+        background: linear-gradient(
+          135deg,
+          var(--content-gradient-start) 0%,
+          var(--content-gradient-end) 100%
+        );
+        border-radius: var(--box-border-radius);
+        padding: 20px;
+        box-shadow: 0 4px 10px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      .contenidos {
+        width: 100%;
+        overflow-x: auto; 
+      }
+
+      
+      table {
+        width: 100%;
+        margin-bottom: 30px;
+        border-collapse: separate !important;
+        border-spacing: 0 !important;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 2px solid #82bbe0; 
+        background-color: #ffffff; 
+        font-size: 1rem;
+      }
+      
+      table caption {
+        caption-side: top;
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+        color: var(--title-pastel);
+        font-weight: 600;
+      }
+      th, td {
+        padding: 16px; 
+        text-align: center;
+        vertical-align: middle;
+        color: #1b4b69; 
+      }
+      th {
+        background-color: #a1c6e9;
+        color: #ffffff;
+        font-weight: 700;
+      }
+      tr:nth-child(even) {
+        background-color: #add7f1;
+      }
+      tr:hover {
+        background-color: #e3f2fc;
+      }
+      
+      footer a {
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+      footer a:hover {
+        color: #f4f9fc;
+        transform: scale(1.03);
+      }
+
+      @media (max-width: 768px) {
+        .content {
+          flex-direction: column; 
+        }
+        nav {
+          width: 100%;
+          margin-bottom: 20px; 
+          display: block; 
+        }
+        nav ul {
+          display: flex;
+          flex-wrap: wrap; 
+          justify-content: center; 
+          padding-left: 0;
+          list-style: none; 
+        }
+        nav ul li {
+          margin: 0 10px; 
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="cv-wrapper">
+
+      <header>
+        <h1>Horario</h1>
+      </header>
+
+      <div class="content">
+
+        <nav>
+          <h2>Índice</h2>
+          <ul>
+            <li><a href="curriculo.html">Curriculum</a></li>
+            <li><a href="horario.html">Horario</a></li>
+            <li><a href="datospersonales.html">Datos Personales</a></li>
+            <li>
+              <a href="modulos.html">
+                Módulos 1º DAM
+              </a>
+              <a href="#"
+                 data-bs-toggle="collapse"
+                 data-bs-target="#modulos1dam"
+                 aria-expanded="false"
+                 aria-controls="modulos1dam">
+                <span class="arrow">▼</span>
+              </a>
+              <ul class="collapse" id="modulos1dam">
+                <li><a href="programacion.html" target="_blank">Programación</a></li>
+                <li><a href="basesdedatos.html" target="_blank">Bases De Datos</a></li>
+                <li><a href="entornosdedesarrollo.html" target="_blank">Entornos De Desarrollo</a></li>
+                <li><a href="lenguajedemarcas.html" target="_blank">Lenguajes De Marcas</a></li>
+                <li><a href="sistemasinformaticos.html" target="_blank">Sistemas Informáticos</a></li>
+              </ul>
+            </li>
+            <li><a href="aficiones.html">Aficiones</a></li>
+            <li><a href="sitiosdereferencia.html">Sitios de Referencia</a></li>
+            <li><a href="multimedia.html">Multimedia Sobre Mí</a></li>
+            <li><a href="formulario.html">Formulario</a></li>
+            <li><a href="cambios.html">¿Cómo se hizo el trabajo?</a></li>
+          </ul>
+        </nav>
+
+        <section>
+          <div class="contenidos">
+            <table class="table table-hover">
+              <caption>Horario de Mañana</caption>
+              <thead>
+                <tr class="titulos">
+                  <th>HORA</th>
+                  <th>LUNES</th>
+                  <th>MARTES</th>
+                  <th>MIÉRCOLES</th>
+                  <th>JUEVES</th>
+                  <th>VIERNES</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>08:00 - 09:00</td>
+                  <td>PRDAW</td>
+                  <td>DIG</td>
+                  <td>PRDAW</td>
+                  <td>SIM</td>
+                  <td>ITEC</td>
+                </tr>
+                <tr>
+                  <td>09:00 - 10:00</td>
+                  <td>PRDAW</td>
+                  <td>EDES</td>
+                  <td>PRDAW</td>
+                  <td>BDDAW</td>
+                  <td>ITEC</td>
+                </tr>
+                <tr>
+                  <td>10:00 - 11:00</td>
+                  <td>LMDAW</td>
+                  <td>EDES</td>
+                  <td>SIM</td>
+                  <td>BDDAW</td>
+                  <td>SIM</td>
+                </tr>
+                <tr>
+                  <td colspan="6"><b>RECREO</b></td>
+                </tr>
+                <tr>
+                  <td>11:30 - 12:30</td>
+                  <td>LMDAW</td>
+                  <td>SOS</td>
+                  <td>SIM</td>
+                  <td>LMDAW</td>
+                  <td>SIM</td>
+                </tr>
+                <tr>
+                  <td>12:30 - 13:30</td>
+                  <td>BDDAW</td>
+                  <td>PRDAW</td>
+                  <td>EDES</td>
+                  <td>PRDAW</td>
+                  <td>BDDAW</td>
+                </tr>
+                <tr>
+                  <td>13:30 - 14:30</td>
+                  <td>BDDAW</td>
+                  <td>PRDAW</td>
+                  <td>ITEC</td>
+                  <td>PRDAW</td>
+                  <td>BDDAW</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <hr />
+
+            <table class="table table-hover">
+              <caption>Horario de Tarde</caption>
+              <thead>
+                <tr>
+                  <th>HORA</th>
+                  <th>LUNES</th>
+                  <th>MARTES</th>
+                  <th>MIÉRCOLES</th>
+                  <th>JUEVES</th>
+                  <th>VIERNES</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>15:00 - 15:45</td>
+                  <td>Almorzar</td>
+                  <td>Almorzar</td>
+                  <td>Almorzar</td>
+                  <td>Almorzar</td>
+                  <td>Almorzar</td>
+                </tr>
+                <tr>
+                  <td>15:45 - 17:30</td>
+                  <td>Gimnasio</td>
+                  <td>Gimnasio</td>
+                  <td>Gimnasio</td>
+                  <td>Gimnasio</td>
+                  <td>Gimnasio</td>
+                </tr>
+                <tr>
+                  <td>17:30 - 19:50</td>
+                  <td>Estudiar</td>
+                  <td>Estudiar</td>
+                  <td>Estudiar</td>
+                  <td>Estudiar</td>
+                  <td>Estudiar</td>
+                </tr>
+                <tr>
+                  <td>20:00 - 20:30</td>
+                  <td>Cenar</td>
+                  <td>Cenar</td>
+                  <td>Cenar</td>
+                  <td>Cenar</td>
+                  <td>Cenar</td>
+                </tr>
+                <tr>
+                  <td>20:30 - 21:30</td>
+                  <td>Sacar a mi perro</td>
+                  <td>Sacar a mi perro</td>
+                  <td>Sacar a mi perro</td>
+                  <td>Sacar a mi perro</td>
+                  <td>Sacar a mi perro</td>
+                </tr>
+                <tr>
+                  <td>21:30 - 22:30</td>
+                  <td>Ver Netflix</td>
+                  <td>Ver Netflix</td>
+                  <td>Ver Netflix</td>
+                  <td>Ver Netflix</td>
+                  <td>Arreglarme</td>
+                </tr>
+                <tr>
+                  <td>22:30 - 00:00</td>
+                  <td>Ver RRSS</td>
+                  <td>Ver RRSS</td>
+                  <td>Ver RRSS</td>
+                  <td>Ver RRSS</td>
+                  <td>Salir</td>
+                </tr>
+                <tr>
+                  <td>00:10</td>
+                  <td>Dormir</td>
+                  <td>Dormir</td>
+                  <td>Dormir</td>
+                  <td>Dormir</td>
+                  <td>Salir</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <footer>
+        <p>
+          <a href="index.html">Volver a la página de inicio</a>
+        </p>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Digitalización</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+
+    <style>
+      
+      :root {
+        
+        --bg-gradient-start: #fff9d9; 
+        --bg-gradient-end:   #f9e0a6; 
+
+        
+        --header-footer-start: #f9e0a6;
+        --header-footer-end:   #fff9d9;
+
+        
+        --nav-gradient-start: #f9e0a6;
+        --nav-gradient-end:   #fff9d9;
+
+        
+        --content-gradient-start: #fff9d9;
+        --content-gradient-end:   #f9e0a6;
+
+        
+        --text-color:   #6a4f2d; 
+        --title-color:  #6a4f2d; 
+        --title-pastel: #6a4f2d; 
+
+        
+        --nav-link-color: #6a4f2d;  
+        --nav-link-hover: #fffbe2;  
+
+        
+        --box-border-radius: 25px;
+        --shadow-color: rgba(0, 0, 0, 0.15);
+      }
+
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      
+      html,
+      body {
+        width: 100%;
+        min-height: 100%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text-color);
+        
+        background: linear-gradient(
+          to bottom right,
+          var(--bg-gradient-start),
+          var(--bg-gradient-end)
+        );
+      }
+
+      
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+      .cv-wrapper {
+        width: 90%;
+        max-width: 1400px;
+        margin: 20px auto;
+        border-radius: var(--box-border-radius);
+        box-shadow: 0 0 20px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background: #ffffff;
+        animation: fadeIn 1.2s ease-in-out; 
+      }
+
+      
+      header,
+      footer {
+        background: linear-gradient(
+          to right,
+          var(--header-footer-start),
+          var(--header-footer-end)
+        );
+        border-radius: var(--box-border-radius);
+        text-align: center;
+        padding: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      footer {
+        margin-top: 20px;
+        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+      }
+      header h1 {
+        color: var(--title-color);
+        font-size: 2rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        transition: color 0.3s ease;
+      }
+      header h1:hover {
+        color: #fffbe2;
+      }
+
+      
+      .content {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      
+      nav {
+        width: 220px;
+        background: linear-gradient(
+          to bottom left,
+          var(--nav-gradient-start),
+          var(--nav-gradient-end)
+        );
+        border-radius: var(--box-border-radius);
+        padding: 20px;
+        box-shadow: 0 4px 6px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+      }
+      nav h2 {
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+        color: var(--title-pastel);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+      nav ul {
+        list-style: disc;
+        padding-left: 1.2rem;
+      }
+      nav ul li::marker {
+        color: var(--title-pastel);
+      }
+      nav ul li {
+        margin-bottom: 10px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: var(--nav-link-color);
+        font-weight: bold;
+        text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+      nav ul li a:hover {
+        color: var(--nav-link-hover);
+        transform: scale(1.03);
+      }
+
+      
+      .contenido {
+        flex: 1;
+        
+        background: linear-gradient(
+          135deg,
+          var(--content-gradient-start) 0%,
+          var(--content-gradient-end) 100%
+        );
+        border-radius: var(--box-border-radius);
+        padding: 20px;
+        box-shadow: 0 4px 10px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      .contenido section {
+        margin-bottom: 20px;
+      }
+      .contenido h3 {
+        margin-bottom: 10px;
+        color: var(--title-pastel);
+      }
+      .contenido p,
+      .contenido ul {
+        margin-left: 20px;
+        margin-bottom: 10px;
+        line-height: 1.4;
+      }
+      .contenido ul {
+        list-style: disc;
+      }
+      .contenido ul li::marker {
+        color: #dfc58a; 
+      }
+      .contenido ul ul {
+        margin-left: 30px;
+      }
+
+      
+      .footer a {
+        text-decoration: none;
+        color: var(--title-color);
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        transition: color 0.3s ease;
+      }
+      .footer a:hover {
+        color: #fffbe2;
+      }
+
+      
+      @media (max-width: 768px) {
+        .content {
+          flex-direction: column;
+        }
+        nav {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+        nav ul {
+          list-style: none;
+          padding-left: 0;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        nav ul li {
+          margin: 0 10px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="cv-wrapper">
+
+      <header>
+        <h1>Digitalización</h1>
+      </header>
+
+      <div class="content">
+        <nav>
+            <h2>Índice</h2>
+            <ul>
+              <li><a href="curriculo.html">Curriculum</a></li>
+              <li><a href="horario.html">Horario</a></li>
+              <li><a href="datospersonales.html">Datos Personales</a></li>
+              <li>
+                <a href="modulos.html">
+                  Módulos 1º DAM
+                </a>
+                <a 
+                  href="modulos.html"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#modulos1dam"
+                  aria-expanded="false"
+                  aria-controls="modulos1dam">
+                  <span class="arrow">▼</span>
+                </a>
+                <ul class="collapse" id="modulos1dam">
+                  <li><a href="programacion.html" target="_blank">Programación</a></li>
+                  <li><a href="basesdedatos.html" target="_blank">Bases De Datos</a></li>
+                  <li><a href="entornosdedesarrollo.html" target="_blank">Entornos De Desarrollo</a></li>
+                  <li><a href="lenguajedemarcas.html" target="_blank">Lenguajes De Marcas</a></li>
+                  <li><a href="sistemasinformaticos.html" target="_blank">Sistemas Informáticos</a></li>
+                  <li><a href="sostenibilidad.html" target="_blank">Sostenibilidad</a></li>
+                  <li><a href="digitalizacion.html" target="_blank">Digitalización</a></li>
+                  <li><a href="ipe.html" target="_blank">Itinerario Personal</a></li>
+                </ul>
+              </li>
+              <li><a href="aficiones.html">Aficiones</a></li>
+              <li><a href="sitiosdereferencia.html">Sitios de Referencia</a></li>
+              <li><a href="multimedia.html">Multimedia Sobre Mí</a></li>
+              <li><a href="formulario.html">Formulario</a></li>
+              <li><a href="cambios.html">¿Cómo se hizo el trabajo?</a></li>
+            </ul>
+          </nav>
+
+        <!-- CONTENIDO (Digitalización) -->
+        <main class="contenido">
+            <section id="introduccion">
+                <h3>Introducción</h3>
+                <p>La asignatura de Digitalización está diseñada para introducir a los estudiantes en los conceptos, herramientas y prácticas que impulsan la transformación digital en diferentes sectores. Se enfoca en las tecnologías y metodologías que permiten la automatización, optimización y mejora de procesos a través de herramientas digitales. Este curso busca que los estudiantes comprendan los fundamentos de la digitalización y estén preparados para integrar soluciones digitales en distintos entornos.</p>
+            </section>
+            
+            <section id="queaprender">
+                <h3>Qué vamos a aprender</h3>
+                <ul>
+                    <li><b>Concepto de digitalización:</b> Qué es la digitalización y su diferencia con la transformación digital.</li>
+                    <li><b>Impacto de la digitalización en la sociedad:</b> Cómo afecta la digitalización a sectores como la educación, la salud, la industria y los negocios.</li>
+                    <li><b>Ventajas y retos de la digitalización:</b> Eficiencia, automatización, accesibilidad, así como desafíos éticos y sociales.</li>
+                </ul>
+            </section>
+            
+            <section id="transformacióndigital">
+                <h3>Transformación digital</h3>
+                <ul>
+                    <li><b>Estrategias de trasformación digital:</b> Elementos clave para digitalizar procesos en empresas y organizaciones.</li>
+                    <li><b>Modelos de negocio digital:</b> Nuevos modelos de negocio impulsados por la tecnología, como el e-commerce, los servicios en la nube y la economía colaborativa.</li>
+                    <li><b>Cultura digital en las empresas:</b> Cómo fomentar una mentalidad abierta a la tecnología y la innovación dentro de las organizaciones.</li>
+               </ul>
+            </section>
+
+            <section id="herramientas">
+                <h3>Herramientas y tecnologías para la digitalización</h3>
+                <ul>
+                    <li><b>Sistemas de gestión empresarial:</b> ERP (Enterprise Resource Planning) y CRM (Customer Relationship Management).</li>
+                    <li><b>Automatización de procesos:</b> Introducción a la automatización robótica de procesos (RPA) y su aplicación en tareas repetitivas.</li>
+                    <li><b>Internet de las cosas (IoT):</b> Concepto y aplicación de IoT en la digitalización de procesos en industrias y hogares.</li>
+                    <li><b>Computación en la nube (Cloud Computing):</b> Modelos de servicio (SaaS, PaaS, IaaS) y su importancia para la digitalización.</li>
+                </ul>
+            </section>
+
+            <section id="gestión">
+                <h3>Gestión de datos y análisis de información</h3>
+                <ul>
+                    <li><b>Introducción al Big Data:</b> Concepto de Big Data y su relevancia en la toma de decisiones.</li>
+                    <li><b>Bases de datos y sistemas de almacenamiento:</b>  Diferencias entre bases de datos relacionales y NoSQL en la gestión de grandes volúmenes de datos.</li>
+                    <li><b>Minería de datos:</b> Uso de técnicas de minería para extraer valor de los datos recopilados.</li>
+                    <li><b>Visualización de datos:</b> Herramientas y técnicas para presentar la información de manera visual y comprensible.</li>
+                </ul>
+            </section>
+
+            <section id="IA">
+                <h3>Inteligencia artificial y machine learning en la digitalización</h3>
+                <ul>
+                    <li><b>Conceptos básicos de inteligencia artificial (IA):</b>  Qué es la IA y sus aplicaciones en la automatización de tareas.</li>
+                    <li><b>Aprendizaje automático (Machine Learning):</b> Introducción a los algoritmos de aprendizaje automático y cómo estos pueden integrarse en soluciones digitales.</li>
+                    <li><b>IA aplicada a la digitalización:</b> Casos prácticos de IA en la industria, como la detección de fraudes, análisis predictivo y personalización de servicios.</li>
+                </ul>
+            </section>
+
+            <section id="ciber">
+                <h3>Ciberseguridad en la era digital</h3>
+                <ul>
+                    <li><b>Riesgos y amenazas digitales:</b> Principales riesgos, como malware, phishing, ransomware, etc.</li>
+                    <li><b>Medidas de protección:</b> Buenas prácticas de seguridad, encriptación y autenticación.</li>
+                    <li><b>Seguridad en la nube y en dispositivos móviles:</b> Protección de información y cumplimiento de normativas de seguridad en entornos digitales.</li>
+                    <li><b>Protección de datos personales:</b> Introducción a las leyes y normativas sobre protección de datos, como el GDPR (Reglamento General de Protección de Datos).</li>
+                </ul>
+            </section>
+
+            <section id="aplicaciones">
+                <h3>Desarrollo de aplicaciones y herramientas digitales</h3>
+                <ul>
+                    <li><b>Aplicaciones móviles y su papel en la digitalización:</b> Cómo las apps móviles facilitan la accesibilidad y optimización de procesos.</li>
+                    <li><b>Aplicaciones web y cloud:</b> Beneficios de las aplicaciones en la nube para la gestión de información y acceso remoto.</li>
+                    <li><b>Interoperabilidad y conectividad:</b> Importancia de que las aplicaciones puedan integrarse con otros sistemas y bases de datos.</li>
+                </ul>
+            </section>
+
+            <section id="sectores">
+                <h3>Digitalización de procesos en sectores clave</h3>
+                <ul>
+                    <li><b>Digitalización en la industria (Industria 4.0):</b> Automatización en fábricas y logística a través de sensores, IoT y sistemas de control.</li>
+                    <li><b>Digitalización en el comercio:</b> E-commerce, tiendas online y estrategias de marketing digital.</li>
+                    <li><b>Digitalización en la educación:</b> Plataformas de e-learning, realidad aumentada y virtual en educación.</li>
+                    <li><b>Digitalización en el sector salud:</b> Telemedicina, historiales clínicos digitales y monitoreo remoto de pacientes.</li>
+                </ul>
+            </section>
+
+            <section id="ética">
+                <h3>Ética y responsabilidad en la digitalización</h3>
+                <ul>
+                    <li><b>Impacto social de la digitalización:</b> Consideraciones sobre empleo, privacidad y brecha digital.</li>
+                    <li><b>Responsabilidad y ética en la tecnología:</b> Normas y principios éticos en el uso de tecnologías digitales, privacidad y responsabilidad.</li>
+                    <li><b>Accesibilidad digital:</b> Importancia de crear soluciones accesibles para personas con discapacidad y con necesidades especiales.</li>
+                </ul>
+            </section>
+
+            <section id="herramientasytec">
+                <h3>Herramientas y Tecnología Utilizadas</h3>
+                <ul>
+                    <li><b>Herramientas de gestión y automatización:</b> ERP, CRM y software de automatización de procesos.</li>
+                    <li><b>Plataformas de análisis de datos:</b> Excel, Google Data Studio, Tableau.</li>
+                    <li><b>Entornos de programación y aprendizaje automático:</b>  Python y R para Big Data y Machine Learning.</li>
+                    <li><b>Servicios en la nube:</b> AWS, Google Cloud, Microsoft Azure para trabajar con almacenamiento y procesamiento de datos.</li>
+                    <li><b>Herramientas de ciberseguridad:</b> Software de encriptación, firewalls, y aplicaciones de análisis de vulnerabilidades.</li>
+                </ul>
+            </section>
+
+            <section id="Objetivos">
+                <h3>Objetivos</h3>
+                <ul>
+                    <li>Comprender y aplicar los conceptos de digitalización y transformación digital en distintos entornos.</li>
+                    <li>Utilizar herramientas digitales para gestionar, analizar y visualizar datos.</li>
+                    <li>Desarrollar aplicaciones con un enfoque digital, accesible y seguro.</li>
+                    <li>Reflexionar sobre el impacto social, ético y ambiental de las tecnologías digitales.</li>
+                    <li>Estar preparados para implementar y participar en procesos de digitalización en un entorno profesional.</li>
+                </ul>
+            </section>
+        </main>
+      </div>
+
+      <footer class="footer">
+        <p><a href="modulos.html">Volver a módulos</a></p>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Índice</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+
+    <style>
+      
+      :root {
+        
+        --bg-gradient-start: #f3e5f5; 
+        --bg-gradient-end:   #ce93d8; 
+
+        
+        --header-footer-start: #ce93d8;
+        --header-footer-end:   #ce93d8;
+
+        
+        --nav-gradient-start: #ce93d8;
+        --nav-gradient-end:   #ce93d8;
+
+        
+        --content-gradient-start: #f3e5f5; 
+        --content-gradient-end:   #ce93d8;
+
+        
+        --text-color:      #4a4a4a; 
+        --nav-link-color:  #ffffff; 
+        --nav-link-hover:  #f3e5f5; 
+
+        
+        --title-color:     #ffffff;
+
+        
+        --box-border-radius:  25px;
+        --shadow-color:       rgba(0, 0, 0, 0.15);
+      }
+
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 100%;
+        min-height: 100%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text-color);
+        background: linear-gradient(
+          to bottom right,
+          var(--bg-gradient-start),
+          var(--bg-gradient-end)
+        );
+      }
+
+      
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+      .cv-wrapper {
+        width: 90%;
+        max-width: 1200px;
+        margin: 20px auto;
+        border-radius: var(--box-border-radius);
+        box-shadow: 0 0 20px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background: #ffffff; 
+        animation: fadeIn 1.2s ease-in-out; 
+      }
+
+      
+      header,
+      footer {
+        background: linear-gradient(
+          to right,
+          var(--header-footer-start),
+          var(--header-footer-end)
+        );
+        border-radius: var(--box-border-radius);
+        text-align: center;
+        padding: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      footer {
+        margin-top: 20px;
+        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+      }
+      header h1 {
+        color: var(--title-color);
+        font-size: 2rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        transition: color 0.3s ease;
+      }
+      header h1:hover {
+        color: #f3e5f5;
+      }
+
+      
+      .content {
+        display: flex; 
+        flex-direction: row; 
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      
+      nav {
+        width: 220px;
+        background: linear-gradient(
+          to bottom left,
+          var(--nav-gradient-start),
+          var(--nav-gradient-end)
+        );
+        border-radius: var(--box-border-radius);
+        padding: 20px;
+        box-shadow: 0 4px 6px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+      }
+
+      nav h2 {
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+        color: #ffffff; 
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      nav ul {
+        list-style: disc;
+        padding-left: 1.2rem;
+      }
+      nav ul li::marker {
+        color: #ffffff;
+      }
+      nav ul li {
+        margin-bottom: 10px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: var(--nav-link-color); 
+        font-weight: bold;
+        text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+      nav ul li a:hover {
+        color: var(--nav-link-hover);
+        transform: scale(1.03);
+      }
+
+      
+      section {
+        flex: 1;
+        background: linear-gradient(
+          135deg,
+          var(--content-gradient-start) 0%,
+          var(--content-gradient-end) 100%
+        );
+        border-radius: var(--box-border-radius);
+        padding: 20px;
+        box-shadow: 0 4px 10px var(--shadow-color);
+      }
+
+      .index-section {
+        margin-bottom: 20px;
+      }
+      .index-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        color: #7d427f; 
+      }
+      .index-section p {
+        margin-left: 10px;
+        margin-bottom: 10px;
+        line-height: 1.4;
+      }
+      .index-section ul {
+        list-style: disc;
+        padding-left: 30px;
+        margin-bottom: 10px;
+      }
+
+      
+      footer a {
+        text-decoration: none;
+        color: #ffffff; 
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        transition: color 0.3s ease;
+      }
+      footer a:hover {
+        color: #f3e5f5;
+      }
+
+      
+      @media (max-width: 768px) {
+        .content {
+          flex-direction: column;
+        }
+        nav {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+        nav ul {
+          list-style: none;
+          padding-left: 0;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        nav ul li {
+          margin: 0 10px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="cv-wrapper">
+      <header>
+        <h1>Índice</h1>
+      </header>
+      <div class="content">
+        <nav>
+            <h2>Índice</h2>
+            <ul>
+              <li><a href="curriculo.html">Curriculum</a></li>
+              <li><a href="horario.html">Horario</a></li>
+              <li><a href="datospersonales.html">Datos Personales</a></li>
+              <li>
+                <a href="modulos.html">
+                  Módulos 1º DAM
+                </a>
+                <a 
+                  href="#"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#modulos1dam"
+                  aria-expanded="false"
+                  aria-controls="modulos1dam">
+                  <span class="arrow">▼</span>
+                </a>
+                <ul class="collapse" id="modulos1dam">
+                  <li><a href="programacion.html" target="_blank">Programación</a></li>
+                  <li><a href="basesdedatos.html" target="_blank">Bases De Datos</a></li>
+                  <li><a href="entornosdedesarrollo.html" target="_blank">Entornos De Desarrollo</a></li>
+                  <li><a href="lenguajedemarcas.html" target="_blank">Lenguajes De Marcas</a></li>
+                  <li><a href="sistemasinformaticos.html" target="_blank">Sistemas Informáticos</a></li>
+                  <li><a href="sostenibilidad.html" target="_blank">Sostenibilidad</a></li>
+                  <li><a href="digitalizacion.html" target="_blank">Digitalización</a></li>
+                  <li><a href="ipe.html" target="_blank">Itinerario Personal</a></li>
+                </ul>
+              </li>
+              <li><a href="aficiones.html">Aficiones</a></li>
+              <li><a href="sitiosdereferencia.html">Sitios de Referencia</a></li>
+              <li><a href="multimedia.html">Multimedia Sobre Mí</a></li>
+              <li><a href="formulario.html">Formulario</a></li>
+              <li><a href="cambios.html">¿Cómo se hizo el trabajo?</a></li>
+            </ul>
+          </nav>
+
+        <section>
+          <div class="index-section">
+            <h2>Curriculum</h2>
+            <p>
+              Página principal del CV con los datos básicos de mi formación, experiencia y habilidades.
+              Se detallan estudios, experiencia laboral y habilidades personales y técnicas.
+            </p>
+          </div>
+
+          <div class="index-section">
+            <h2>Datos Personales</h2>
+            <p>
+              Información detallada sobre mi fecha de nacimiento, dirección, formas de contacto 
+              y otros datos personales relevantes.
+            </p>
+          </div>
+
+          <div class="index-section">
+            <h2>Aficiones</h2>
+            <p>
+              Una página donde describo mis intereses y pasatiempos personales, como deportes, 
+              lecturas favoritas o actividades artísticas.
+            </p>
+          </div>
+
+          <div class="index-section">
+            <h2>Formulario</h2>
+            <p>
+              Página con un formulario de contacto o encuesta, donde el usuario puede
+              introducir información que se envía a un script o servidor para su procesamiento.
+            </p>
+          </div>
+
+          <div class="index-section">
+            <h2>Horario</h2>
+            <p>
+              Muestra una tabla con mi planificación diaria, dividiendo las actividades 
+              de la mañana, tarde. Incluye horarios y tareas habituales.
+            </p>
+          </div>
+
+          <div class="index-section">
+            <h2>Asignaturas de 1º de Desarrollo de Aplicaciones Multiplataforma</h2>
+            <p>
+              Explicación breve de cada módulo de 1º DAM: Programación, Sistemas Informáticos, 
+              Entornos de Desarrollo, Bases de Datos, Lenguajes de Marcas, etc.
+            </p>
+          </div>
+
+          <div class="index-section">
+            <h2>Multimedia sobre mí</h2>
+            <p>
+              Una recopilación de imágenes, vídeos o audios personales, 
+              para ilustrar proyectos, experiencias o momentos relevantes.
+            </p>
+          </div>
+
+          <div class="index-section">
+            <h2>Sitios de Referencia</h2>
+            <p>
+              Una recopilación de imágenes, vídeos o audios personales, 
+              para ilustrar proyectos, experiencias o momentos relevantes.
+            </p>
+          </div>
+
+          <div class="index-section">
+            <h2>¿Cómo se hizo esta práctica?</h2>
+            <p>
+              En esta página se explica:
+            </p>
+            <ul>
+              <li><b>Apartado 1</b>: Nuevas etiquetas añadidas respecto a la práctica anterior o cambios realizados en las ya existentes.</li>
+              <li><b>Apartado 2</b>: Atributos usados en <code>&lt;video&gt;</code> y <code>&lt;audio&gt;</code>, y problemas encontrados.</li>
+              <li><b>Apartado 3</b>: Resumen de los cambios en el formulario original.</li>
+              <li><b>Apartado 4</b>: Páginas donde se incluyeron las media queries y el objetivo de cada una.</li>
+              <li><b>Apartado 5</b>: Descripción de lo hecho con Flexbox.</li>
+              <li><b>Apartado 6</b>: Explicación de las animaciones y transiciones usadas.</li>
+            </ul>
+            <p>
+              Sirve como guía para entender las mejoras y nuevas funcionalidades 
+              implementadas en esta entrega del proyecto.
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <footer>
+        <p>
+          <a href="index.html">Volver a la página de inicio</a>
+        </p>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

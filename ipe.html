@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Itinerario Personal Para la Empleabilidad</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+
+    <style>
+      
+      :root {
+        
+        --bg-gradient-start: #ffe0b2; 
+        --bg-gradient-end:   #fff3e0; 
+
+        
+        --header-footer-start: #ffc56f;
+        --header-footer-end:   #ffe0b2;
+
+        
+        --nav-gradient-start: #ffc56f;
+        --nav-gradient-end:   #ffe0b2;
+
+        
+        --content-gradient-start: #ffe0b2;
+        --content-gradient-end:   #fff3e0;
+
+        
+        --text-color:     #5a3f1a; 
+        --title-color:    #ffffff; 
+        --title-pastel:   #5a3f1a; 
+
+        
+        --nav-link-color: #fdefce;  
+        --nav-link-hover: #fff7e5;  
+
+        
+        --box-border-radius: 25px;
+        --shadow-color: rgba(0, 0, 0, 0.15);
+      }
+
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      
+      html,
+      body {
+        width: 100%;
+        min-height: 100%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text-color);
+        
+        background: linear-gradient(
+          to bottom right,
+          var(--bg-gradient-start),
+          var(--bg-gradient-end)
+        );
+      }
+
+      
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+      .cv-wrapper {
+        width: 90%;
+        max-width: 1400px;
+        margin: 20px auto;
+        border-radius: var(--box-border-radius);
+        box-shadow: 0 0 20px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background: #ffffff;
+        animation: fadeIn 1.2s ease-in-out; 
+      }
+
+      
+      header,
+      footer {
+        background: linear-gradient(
+          to right,
+          var(--header-footer-start),
+          var(--header-footer-end)
+        );
+        border-radius: var(--box-border-radius);
+        text-align: center;
+        padding: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      footer {
+        margin-top: 20px;
+        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+      }
+      header h1 {
+        color: var(--title-color);
+        font-size: 2rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        transition: color 0.3s ease;
+      }
+      header h1:hover {
+        color: #fff7e5;
+      }
+
+      
+      .content {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      
+      nav {
+        width: 220px;
+        background: linear-gradient(
+          to bottom left,
+          var(--nav-gradient-start),
+          var(--nav-gradient-end)
+        );
+        border-radius: var(--box-border-radius);
+        padding: 20px;
+        box-shadow: 0 4px 6px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+      }
+      nav h2 {
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+        color: var(--title-pastel);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+      nav ul {
+        list-style: disc;
+        padding-left: 1.2rem;
+      }
+      nav ul li::marker {
+        color: var(--title-pastel);
+      }
+      nav ul li {
+        margin-bottom: 10px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: var(--nav-link-color);
+        font-weight: bold;
+        text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+      nav ul li a:hover {
+        color: var(--nav-link-hover);
+        transform: scale(1.03);
+      }
+
+      
+      .contenido {
+        flex: 1;
+        background: linear-gradient(
+          135deg,
+          var(--content-gradient-start) 0%,
+          var(--content-gradient-end) 100%
+        );
+        border-radius: var(--box-border-radius);
+        padding: 20px;
+        box-shadow: 0 4px 10px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      .contenido section {
+        margin-bottom: 20px;
+      }
+      .contenido h3 {
+        margin-bottom: 10px;
+        color: var(--title-pastel);
+      }
+      .contenido p,
+      .contenido ul {
+        margin-left: 20px;
+        margin-bottom: 10px;
+        line-height: 1.4;
+      }
+      .contenido ul {
+        list-style: disc;
+      }
+      .contenido ul li::marker {
+        color: #a1632e; 
+      }
+      .contenido ul ul {
+        margin-left: 30px;
+      }
+
+      
+      .footer a {
+        text-decoration: none;
+        color: var(--title-color);
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        transition: color 0.3s ease;
+      }
+      .footer a:hover {
+        color: #fff7e5;
+      }
+
+      
+      @media (max-width: 768px) {
+        .content {
+          flex-direction: column;
+        }
+        nav {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+        nav ul {
+          list-style: none;
+          padding-left: 0;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        nav ul li {
+          margin: 0 10px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="cv-wrapper">
+  
+      <header>
+        <h1>Itinerario Personal Para la Empleabilidad</h1>
+      </header>
+
+      <div class="content">
+        <nav>
+          <h2>Índice</h2>
+          <ul>
+            <li><a href="curriculo.html">Curriculum</a></li>
+            <li><a href="horario.html">Horario</a></li>
+            <li><a href="datospersonales.html">Datos Personales</a></li>
+            <li>
+              <a href="modulos.html">
+                Módulos 1º DAM
+              </a>
+              <a 
+                href="#"
+                data-bs-toggle="collapse"
+                data-bs-target="#modulos1dam"
+                aria-expanded="false"
+                aria-controls="modulos1dam">
+                <span class="arrow">▼</span>
+              </a>
+              <ul class="collapse" id="modulos1dam">
+                <li><a href="programacion.html" target="_blank">Programación</a></li>
+                <li><a href="basesdedatos.html" target="_blank">Bases De Datos</a></li>
+                <li><a href="entornosdedesarrollo.html" target="_blank">Entornos De Desarrollo</a></li>
+                <li><a href="lenguajedemarcas.html" target="_blank">Lenguajes De Marcas</a></li>
+                <li><a href="sistemasinformaticos.html" target="_blank">Sistemas Informáticos</a></li>
+                <li><a href="sostenibilidad.html" target="_blank">Sostenibilidad</a></li>
+                <li><a href="digitalizacion.html" target="_blank">Digitalización</a></li>
+                <li><a href="ipe.html" target="_blank">Itinerario Personal</a></li>
+              </ul>
+            </li>
+            <li><a href="aficiones.html">Aficiones</a></li>
+            <li><a href="sitiosdereferencia.html">Sitios de Referencia</a></li>
+            <li><a href="multimedia.html">Multimedia Sobre Mí</a></li>
+            <li><a href="formulario.html">Formulario</a></li>
+            <li><a href="cambios.html">¿Cómo se hizo el trabajo?</a></li>
+          </ul>
+        </nav>
+
+        <main class="contenido">
+          <section id="introduccion">
+            <h3>Introducción</h3>
+            <p> La asignatura Itinerario Personal para la Empleabilidad tiene como objetivo ayudar a los estudiantes a mejorar su empleabilidad y a planificar una carrera profesional en el ámbito de la programación y el desarrollo de software. Este módulo está diseñado para que los estudiantes desarrollen competencias y habilidades blandas (soft skills) esenciales para el mercado laboral, como el trabajo en equipo, la comunicación, la adaptabilidad y la capacidad de autogestión, además de aprender a preparar su perfil profesional y conocer las demandas del sector tecnológico.</p>
+          </section>
+          
+          <section id="autoconocimiento">
+            <h3>Autoconocimiento y análisis de competencias</h3>
+            <ul>
+              <li><b>Identificación de habilidades y fortalezas:</b> Reflexión sobre las habilidades técnicas y blandas propias, y cómo se pueden potenciar.</li>
+              <li><b>Debilidades y oportunidades de mejora:</b> Identificación de áreas en las que el estudiante necesita mejorar o adquirir nuevas competencias.</li>
+              <li><b>Competencias más demandadas en el sector TI:</b> Repaso de las competencias clave para desarrolladores de software, como resolución de problemas, pensamiento analítico, y habilidades de comunicación.</li>
+            </ul>
+          </section>
+          
+          <section id="marcapersonal">
+            <h3>Construcción de la marca personal</h3>
+            <ul>
+              <li><b>Definición de marca personal:</b> Qué es la marca personal y cómo puede ayudar en el desarrollo de una carrera profesional en tecnología.</li>
+              <li><b>Creación de perfiles en redes profesionales:</b> Uso de LinkedIn y otras plataformas para construir y mantener una presencia profesional en línea.</li>
+              <li><b>Networking y relaciones profesionales:</b> Importancia de construir y mantener relaciones en el sector tecnológico. Participación en eventos, meetups y comunidades de programadores.</li>
+            </ul>
+          </section>
+
+          <section id="curriculum">
+            <h3>Elaboración de curriculum y portfolio</h3>
+            <ul>
+              <li><b>Currículum vitae (CV) efectivo:</b> Cómo estructurar y diseñar un CV que destaque las habilidades y experiencia relevante para el sector TI.</li>
+              <li><b>Carta de presentación:</b> Redacción de cartas de presentación adaptadas al puesto y la empresa.</li>
+              <li><b>Portafolio de proyectos:</b> Creación de un portafolio que muestre proyectos personales, académicos o de prácticas que reflejen habilidades técnicas.</li>
+              <li><b>Uso de GitHub y repositorios de código:</b> Importancia de tener un perfil activo en GitHub o GitLab donde se muestren proyectos y contribuciones al código abierto.</li>
+            </ul>
+          </section>
+
+          <section id="entrevistas">
+            <h3>Preparación para entrevistas de trabajo</h3>
+            <ul>
+              <li><b>Tipos de entrevistas en tecnología:</b> Introducción a entrevistas técnicas, de resolución de problemas, y entrevistas de comportamiento.</li>
+              <li><b>Entrevistas técnicas y resolución de problemas:</b> Ejercicios de preparación para entrevistas que incluyen pruebas de lógica, programación, y algoritmos.</li>
+              <li><b>Entrevistas de comportamiento:</b> Ejemplos de preguntas comunes y técnicas de respuesta (por ejemplo, método STAR: Situación, Tarea, Acción, Resultado).</li>
+              <li><b>Simulacros de entrevistas:</b> Práctica de entrevistas simuladas para mejorar la comunicación, la seguridad y la habilidad de transmitir competencias.</li>
+            </ul>
+          </section>
+
+          <section id="colaboracion">
+            <h3>Trabajo en equipo y colaboración en proyectos</h3>
+            <ul>
+              <li><b>Metodologías ágiles:</b> Introducción a metodologías ágiles como Scrum y Kanban, y su aplicación en proyectos de desarrollo de software.</li>
+              <li><b>Roles y funciones en equipos de desarrollo:</b> Explicación de los distintos roles en un equipo de desarrollo de software (desarrollador, tester, project manager, etc.).</li>
+              <li><b>Herramientas de colaboración:</b> Uso de herramientas para trabajo en equipo y gestión de proyectos, como Trello, Slack, y GitHub para el control de versiones.</li>
+              <li><b>Habilidades de comunicación y colaboración:</b> Prácticas de escucha activa, retroalimentación constructiva, y adaptación a distintos estilos de trabajo en equipo.</li>
+            </ul>
+          </section>
+
+          <section id="adaptabilidad">
+            <h3>Adaptabilidad y aprendizaje continuo</h3>
+            <ul>
+              <li><b>Importancia de la adaptabilidad en el sector TI:</b> Cómo la rápida evolución del sector tecnológico requiere una mentalidad abierta y adaptable.</li>
+              <li><b>Gestión del cambio y resiliencia:</b> Estrategias para adaptarse al cambio, gestionar el estrés, y mantener la motivación en un entorno laboral dinámico.</li>
+              <li><b>Desarrollo de habilidades autodidactas:</b> Uso de recursos en línea, MOOCs, y documentación para mantenerse actualizado en nuevas tecnologías y tendencias del mercado.</li>
+            </ul>
+          </section>
+
+          <section id="ética">
+            <h3>Ética y responsabilidad profesional en tecnología</h3>
+            <ul>
+              <li><b>Ética en el desarrollo de software:</b> Reflexión sobre la responsabilidad de los desarrolladores en temas de privacidad, seguridad y transparencia.</li>
+              <li><b>Uso ético de datos:</b> Consideraciones éticas en el manejo de datos personales, especialmente en el contexto de la programación y el desarrollo de aplicaciones.</li>
+              <li><b>Responsabilidad en el entorno laboral:</b> Importancia de la honestidad, el respeto y la profesionalidad en el trabajo.</li>
+            </ul>
+          </section>
+
+          <section id="mercadolaboral">
+            <h3>Conocimiento del mercado laboral en el sector TI</h3>
+            <ul>
+              <li><b>Panorama del sector de tecnología y programación:</b> Análisis de las áreas con mayor demanda laboral, como desarrollo web, aplicaciones móviles, inteligencia artificial, etc.</li>
+              <li><b>Oportunidades de empleo:</b> Diferencias entre empleo freelance, startups, grandes empresas y trabajo remoto.</li>
+              <li><b>Investigación de empresas:</b> Cómo investigar la cultura, los valores y las oportunidades de crecimiento en empresas de tecnología.</li>
+            </ul>
+          </section>
+
+          <section id="plancarrera">
+            <h3>Desarrollo de un plan de carrera</h3>
+            <ul>
+              <li><b>Definición de objetivos profesionales:</b> Establecimiento de objetivos a corto, mediano y largo plazo en la carrera profesional.</li>
+              <li><b>Planificación de la trayectoria:</b> Definición de una hoja de ruta para adquirir habilidades, experiencias y competencias necesarias.</li>
+              <li><b>Evaluación y ajuste del plan de carrera:</b> Técnicas para evaluar el progreso y hacer ajustes al plan en función de cambios en el mercado o intereses personales.</li>
+            </ul>
+          </section>
+
+          <section id="practicas">
+            <h3>Prácticas profesional y proyectos colaborativos</h3>
+            <ul>
+              <li><b>Simulaciones de prácticas profesionales:</b> Trabajo en proyectos colaborativos o con clientes ficticios para aplicar conocimientos en un entorno simulado.</li>
+              <li><b>Preparación para prácticas y empleos junior:</b> Introducción a las responsabilidades y expectativas de un desarrollador junior.</li>
+              <li><b>Voluntariado y contribuciones a código abierto:</b> Importancia del voluntariado o la participación en proyectos de código abierto para ganar experiencia y contactos.</li>
+            </ul>
+          </section>
+
+          <section id="Objetivos">
+            <h3>Objetivos</h3>
+            <ul>
+              <li>Identificar sus habilidades, fortalezas y áreas de mejora para el desarrollo profesional.</li>
+              <li>Crear una marca personal sólida y gestionar un portafolio profesional.</li>
+              <li>Desarrollar competencias para la búsqueda de empleo, preparación de entrevistas y trabajo en equipo.</li>
+              <li>Tener una visión clara de sus objetivos profesionales y un plan de carrera adaptado a sus intereses y al mercado laboral.</li>
+              <li>Comprender la importancia de la ética y la responsabilidad en el desarrollo de software y el entorno laboral.</li>
+            </ul>
+          </section>
+
+          <section id="herramientas">
+            <h3>Herramientas y recursos utilizados</h3>
+            <ul>
+              <li>Identificar sus habilidades, fortalezas y áreas de mejora para el desarrollo profesional.</li>
+              <li>Crear una marca personal sólida y gestionar un portafolio profesional.</li>
+              <li>Desarrollar competencias para la búsqueda de empleo, preparación de entrevistas y trabajo en equipo.</li>
+              <li>Tener una visión clara de sus objetivos profesionales y un plan de carrera adaptado a sus intereses y al mercado laboral.</li>
+              <li>Comprender la importancia de la ética y la responsabilidad en el desarrollo de software y el entorno laboral.</li>
+            </ul>
+          </section>
+        </main>
+      </div>
+
+      <footer class="footer">
+        <p><a href="modulos.html">Volver a módulos</a></p>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

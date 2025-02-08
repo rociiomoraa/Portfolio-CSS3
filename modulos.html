@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Módulos 1º DAM</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+
+    <style>
+      :root {
+        --bg-gradient-start: #fff1f1; 
+        --bg-gradient-end:   #fff1f1; 
+
+        --header-footer-start: #7a2a3b;
+        --header-footer-end:   #7a2a3b;
+
+        --nav-gradient-start: #7a2a3b;
+        --nav-gradient-end:   #7a2a3b;
+
+        --content-gradient-start: #fff1f1;
+        --content-gradient-end:   #fff1f1;
+
+        --text-color:       #7a2a3b;
+        --nav-link-color:   #fff1f1;
+        --nav-link-hover:   #ffcdd2; 
+
+        --title-color:      #fff1f1; 
+        --title-pastel:     #fff1f1; 
+
+        --box-border-radius: 25px;
+        --shadow-color:      rgba(0, 0, 0, 0.15);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        min-height: 100%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text-color);
+        background: linear-gradient(
+          to bottom right,
+          var(--bg-gradient-start),
+          var(--bg-gradient-end)
+        );
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+      .cv-wrapper {
+        width: 90%;
+        max-width: 1200px;
+        margin: 20px auto;
+        border-radius: var(--box-border-radius);
+        box-shadow: 0 0 20px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background: #ffffff;
+        animation: fadeIn 1.2s ease-in-out;
+      }
+
+      header,
+      footer {
+        background: linear-gradient(
+          to right,
+          var(--header-footer-start),
+          var(--header-footer-end)
+        );
+        border-radius: var(--box-border-radius);
+        text-align: center;
+        padding: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      footer {
+        margin-top: 20px;
+        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      header h1 {
+        color: var(--title-color);
+        font-size: 1.8rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        transition: color 0.3s ease;
+      }
+      header h1:hover {
+        color: #ffcdd2; 
+      }
+
+      .content {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      nav {
+        width: 220px;
+        background: linear-gradient(
+          to bottom left,
+          var(--nav-gradient-start),
+          var(--nav-gradient-end)
+        );
+        border-radius: var(--box-border-radius);
+        padding: 20px;
+        box-shadow: 0 4px 6px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+      }
+
+      nav h2 {
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+        color: var(--title-pastel);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      nav ul {
+        list-style: disc;
+        padding-left: 1.2rem;
+      }
+      nav ul li::marker {
+        color: var(--title-pastel);
+      }
+      nav ul li {
+        margin-bottom: 10px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: var(--nav-link-color);
+        font-weight: bold;
+        text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+      nav ul li a:hover {
+        color: var(--nav-link-hover);
+        transform: scale(1.02);
+      }
+
+      main {
+        flex: 1;
+        background: linear-gradient(
+          135deg,
+          var(--content-gradient-start) 0%,
+          var(--content-gradient-end) 100%
+        );
+        border-radius: var(--box-border-radius);
+        padding: 20px;
+        box-shadow: 0 4px 10px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      main section {
+        padding: 10px 0;
+        border-bottom: 1px solid #f8d4d4; /* un tono rosado suave */
+      }
+      main section:last-child {
+        border-bottom: none;
+      }
+
+      main h2 a {
+        text-decoration: none;
+        color: var(--text-color); 
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+      main h2 a:hover {
+        color: #7a2a3bcc; 
+        transform: scale(1.01);
+      }
+
+      main p {
+        margin-left: 10px;
+        line-height: 1.4;
+      }
+
+      footer a {
+        text-decoration: none;
+        color: var(--title-color);
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        transition: color 0.3s ease;
+      }
+      footer a:hover {
+        color: #ffcdd2;
+      }
+
+      @media (max-width: 768px) {
+        .content {
+          flex-direction: column;
+        }
+        nav {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+        nav ul {
+          list-style: none;
+          padding-left: 0;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        nav ul li {
+          margin: 0 10px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="cv-wrapper">
+
+      <header>
+        <h1>Módulos de 1º DAM</h1>
+      </header>
+
+      <div class="content">
+        <nav>
+            <h2>Índice</h2>
+            <ul>
+              <li><a href="curriculo.html">Curriculum</a></li>
+              <li><a href="horario.html">Horario</a></li>
+              <li><a href="datospersonales.html">Datos Personales</a></li>
+              <li>
+                <a href="modulos.html">
+                  Módulos 1º DAM
+                </a>
+                <a 
+                  href="#"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#modulos1dam"
+                  aria-expanded="false"
+                  aria-controls="modulos1dam">
+                  <span class="arrow">▼</span>
+                </a>
+                <ul class="collapse" id="modulos1dam">
+                  <li><a href="programacion.html" target="_blank">Programación</a></li>
+                  <li><a href="basesdedatos.html" target="_blank">Bases De Datos</a></li>
+                  <li><a href="entornosdedesarrollo.html" target="_blank">Entornos De Desarrollo</a></li>
+                  <li><a href="lenguajedemarcas.html" target="_blank">Lenguajes De Marcas</a></li>
+                  <li><a href="sistemasinformaticos.html" target="_blank">Sistemas Informáticos</a></li>
+                  <li><a href="sostenibilidad.html" target="_blank">Sostenibilidad</a></li>
+                  <li><a href="digitalizacion.html" target="_blank">Digitalización</a></li>
+                  <li><a href="ipe.html" target="_blank">Itinerario Personal</a></li>
+                </ul>
+              </li>
+              <li><a href="aficiones.html">Aficiones</a></li>
+              <li><a href="sitiosdereferencia.html">Sitios de Referencia</a></li>
+              <li><a href="multimedia.html">Multimedia Sobre Mí</a></li>
+              <li><a href="formulario.html">Formulario</a></li>
+              <li><a href="cambios.html">¿Cómo se hizo el trabajo?</a></li>
+            </ul>
+          </nav>
+
+        <main>
+          <section>
+            <h2>
+              <a href="programacion.html" target="_blank">
+                Programación
+              </a>
+            </h2>
+            <p>
+              Es el módulo en el que aprenderás los fundamentos de la lógica
+              de programación y las bases para crear aplicaciones. 
+              Se practica con distintos lenguajes, aplicando técnicas 
+              de estructuración y resolución de problemas.
+            </p>
+          </section>
+
+          <section>
+            <h2>
+              <a href="sistemas.html" target="_blank">
+                Sistemas Informáticos
+              </a>
+            </h2>
+            <p>
+              Conocimientos sobre la arquitectura, instalación y configuración
+              de equipos informáticos, sistemas operativos y redes, 
+              para garantizar un entorno de trabajo óptimo.
+            </p>
+          </section>
+
+          <section>
+            <h2>
+              <a href="ipe.html" target="_blank">
+                IPE (Itinerario Personal Para la Empleabilidad)
+              </a>
+            </h2>
+            <p>
+              Módulo centrado en el desarrollo de habilidades personales y
+              profesionales para fomentar la iniciativa emprendedora, 
+              la comunicación efectiva y el trabajo en equipo.
+            </p>
+          </section>
+
+          <section>
+            <h2>
+              <a href="sostenibilidad.html" target="_blank">
+                Sostenibilidad Aplicada al Sistema Productivo
+              </a>
+            </h2>
+            <p>
+              Aprendizaje de prácticas responsables con el medio ambiente
+              y la sociedad, aplicadas al mundo de la informática.
+            </p>
+          </section>
+
+          <section>
+            <h2>
+              <a href="digitalizacion.html" target="_blank">
+                Digitalización Aplicada A Los Sectores Productivos
+              </a>
+            </h2>
+            <p>
+              Introducción a las herramientas y metodologías 
+              para la transformación digital de procesos empresariales, 
+              implementando soluciones tecnológicas para optimizar 
+              la productividad.
+            </p>
+          </section>
+
+          <section>
+            <h2>
+              <a href="entornos.html" target="_blank">
+                Entornos de Desarrollo
+              </a>
+            </h2>
+            <p>
+              Se profundiza en el uso de herramientas, editores, 
+              entornos integrados (IDE) y metodologías de trabajo 
+              para desarrollar software de forma ordenada y productiva.
+            </p>
+          </section>
+
+          <section>
+            <h2>
+              <a href="basededatos.html" target="_blank">
+                Bases de Datos
+              </a>
+            </h2>
+            <p>
+              Módulo dedicado al diseño, creación y gestión de bases de datos, 
+              aprendiendo consultas SQL y aspectos de seguridad 
+              e integridad de la información.
+            </p>
+          </section>
+
+          <section>
+            <h2>
+              <a href="lenguajedemarcas.html" target="_blank">
+                Lenguaje de Marcas
+              </a>
+            </h2>
+            <p>
+              Estudio de lenguajes como XML y HTML, junto con otras 
+              tecnologías relacionadas (CSS, XSL) para estructurar 
+              y presentar información en la web o en documentos específicos.
+            </p>
+          </section>
+        </main>
+      </div>
+
+      <footer>
+        <p>
+          <a href="index.html">Volver a la página de inicio</a>
+        </p>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

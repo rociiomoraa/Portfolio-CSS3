@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Aficiones</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+
+    <style>
+
+      :root {
+ 
+        --bg-gradient-start: #f5d2f2; 
+        --bg-gradient-end:   #fae3f8; 
+
+        --header-footer-start: #dba3d6;
+        --header-footer-end:   #fae3f8;
+
+        --nav-gradient-start: #dba3d6;
+        --nav-gradient-end:   #fae3f8;
+
+        --content-gradient-start: #f5d2f2;
+        --content-gradient-end:   #fae3f8;
+
+        --text-color:       #232323; 
+        --nav-link-color:   #fff;    
+        --nav-link-hover:   #ffe4f2; 
+
+        --title-color:      #fff; 
+        --title-pastel:     #dba3d6;
+
+        --box-border-radius: 25px;
+        --shadow-color:      rgba(0, 0, 0, 0.15);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html, body {
+        width: 100%;
+        min-height: 100%;
+       
+        background: linear-gradient(
+          to bottom right,
+          var(--bg-gradient-start),
+          var(--bg-gradient-end)
+        );
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text-color);
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+
+      .cv-wrapper {
+        width: 90%;
+        max-width: 1400px;
+        margin: 20px auto;
+        border-radius: var(--box-border-radius);
+        box-shadow: 0 0 20px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background: #ffffff;
+        animation: fadeIn 1.2s ease-in-out; 
+      }
+
+      header,
+      footer {
+        background: linear-gradient(
+          to right,
+          var(--header-footer-start),
+          var(--header-footer-end)
+        );
+        border-radius: var(--box-border-radius);
+        text-align: center;
+        padding: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      footer {
+        margin-top: 20px;
+        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      header h1 {
+        color: var(--title-color);
+        font-size: 2rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        transition: color 0.3s ease;
+      }
+      header h1:hover {
+        color: #ffe4f2; 
+      }
+
+      .content {
+        display: flex; 
+        flex-direction: row;
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      nav {
+        width: 220px;
+        background: linear-gradient(
+          to bottom left,
+          var(--nav-gradient-start),
+          var(--nav-gradient-end)
+        );
+        border-radius: var(--box-border-radius);
+        padding: 20px;
+        box-shadow: 0 4px 6px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+      }
+
+      nav h2 {
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+        color: var(--title-pastel);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      nav ul {
+        list-style: disc;
+        padding-left: 1.2rem;
+      }
+      nav ul li::marker {
+        color: var(--title-pastel);
+      }
+      nav ul li {
+        margin-bottom: 10px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: var(--nav-link-color);
+        font-weight: bold;
+        text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+      nav ul li a:hover {
+        color: var(--nav-link-hover);
+        transform: scale(1.03);
+      }
+
+      nav ul li ul {
+        margin-top: 10px;
+        padding-left: 15px;
+      }
+      nav ul li ul li {
+        margin-bottom: 8px;
+      }
+
+      main {
+        flex: 1;
+        background: linear-gradient(
+          135deg,
+          var(--content-gradient-start) 0%,
+          var(--content-gradient-end) 100%
+        );
+        border-radius: var(--box-border-radius);
+        padding: 20px;
+        box-shadow: 0 4px 10px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .section-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 50px;
+        background-color: #ffffff; 
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        border-radius: 12px;
+        overflow: hidden; 
+      }
+      .section-title {
+        background-color: #dba3d6; 
+        font-size: 1.3rem;
+        text-align: center;
+        padding: 12px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        color: #fae3f8; 
+        transition: color 0.3s ease;
+      }
+      .section-title:hover {
+        color: #fae3f8; 
+      }
+
+      .section-content {
+        padding: 15px;
+        color: var(--text-color);
+        line-height: 1.5;
+      }
+
+      .section-content ul li::marker {
+        color:#dba3d6; 
+      }
+
+      .section-content b {
+        color: #dba3d6;
+      }
+
+      .links td {
+        text-align: center;
+        padding: 8px;
+      }
+      .links td a {
+        text-decoration: none;
+        color: #dba3d6; 
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      .links td a:hover {
+        color: #d8539d; 
+      }
+
+      .section-table td img {
+        width: 140px; 
+        height: auto;
+        margin: 0 auto;
+        display: block;
+        border-radius: 8px;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease;
+        margin: 0 auto 10px; 
+      }
+      .section-table td img:hover {
+        transform: scale(1.05);
+      }
+
+      footer a {
+        text-decoration: none;
+        color: var(--title-color);
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        transition: color 0.3s ease;
+      }
+      footer a:hover {
+        color: #ffe4f2;
+      }
+
+      @media (max-width: 768px) {
+        .content {
+          flex-direction: column;
+        }
+        nav {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+        nav ul {
+          list-style: none;
+          padding-left: 0;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        nav ul li {
+          margin: 0 10px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="cv-wrapper">
+
+      <header>
+        <h1>Mis Aficiones</h1>
+      </header>
+
+      <div class="content">
+
+        <nav>
+            <h2>Índice</h2>
+            <ul>
+              <li><a href="curriculo.html">Curriculum</a></li>
+              <li><a href="horario.html">Horario</a></li>
+              <li><a href="datospersonales.html">Datos Personales</a></li>
+              <li>
+                <a href="modulos.html">
+                  Módulos 1º DAM
+                </a>
+                <a 
+                  href="#"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#modulos1dam"
+                  aria-expanded="false"
+                  aria-controls="modulos1dam">
+
+                  <span class="arrow">▼</span>
+                </a>
+                <ul class="collapse" id="modulos1dam">
+                  <li><a href="programacion.html" target="_blank">Programación</a></li>
+                  <li><a href="basesdedatos.html" target="_blank">Bases De Datos</a></li>
+                  <li><a href="entornosdedesarrollo.html" target="_blank">Entornos De Desarrollo</a></li>
+                  <li><a href="lenguajedemarcas.html" target="_blank">Lenguajes De Marcas</a></li>
+                  <li><a href="sistemasinformaticos.html" target="_blank">Sistemas Informáticos</a></li>
+                  <li><a href="sostenibilidad.html" target="_blank">Sostenibilidad</a></li>
+                  <li><a href="digitalizacion.html" target="_blank">Digitalización</a></li>
+                  <li><a href="ipe.html" target="_blank">Itinerario Personal</a></li>
+                </ul>
+              </li>
+              <li><a href="aficiones.html">Aficiones</a></li>
+              <li><a href="sitiosdereferencia.html">Sitios de Referencia</a></li>
+              <li><a href="multimedia.html">Multimedia Sobre Mí</a></li>
+              <li><a href="formulario.html">Formulario</a></li>
+              <li><a href="cambios.html">¿Cómo se hizo el trabajo?</a></li>
+            </ul>
+          </nav>
+
+        <main>
+          <table class="section-table">
+            <tr>
+              <td class="section-title" colspan="4"><b>Música</b></td>
+            </tr>
+            <tr>
+              <td class="section-content" colspan="4">
+                La música es lo que más me gusta en el mundo. Siempre estoy con los auriculares puestos.
+                Escucho todo tipo de géneros y me gusta descubrir diferentes artistas, por lo que no puedo elegir a 
+                mis favoritos. El único que siempre está en mi playlist es <b>Bad Bunny</b>. Me enganché a su música desde 
+                que empezó. Me encanta su estilo, sobre todo como sus álbumes tienen un concepto muy bien definido.
+                <br><br>
+                Ahora escucho a muchos artistas españoles, y su música es de todo tipo. Mis favoritos son <b>Mvrk</b>, 
+                <b>Ralphie Choo</b>, <b>Mda</b> y <b>Bon Calso</b>. 
+                Hacen una mezcla de reggaetón y R&B, pero suenan bien en todos los ritmos.
+                <br><br>
+                Escucho muchos artistas latinos. Mis favoritos siempre han sido de Puerto Rico, por ejemplo, <b>Alvaro Diaz</b> es 
+                de ellos, y por supuesto <b>Bad Bunny</b> como dije antes. Pero también me gustan de otros países como Colombia,
+                República Dominicana, pero sobre todo de Chile. Últimamente me he aficionado mucho a la música de ese país.
+                Mis artistas chilenos favoritos son <b>Young Cister</b> y <b>Easykid</b>.
+              </td>
+            </tr>
+            <tr class="links">
+              <td><a href="https://www.instagram.com/badbunnypr/?hl=es" target="_blank">Bad Bunny</a></td>
+              <td><a href="https://www.instagram.com/mvrkx1/?hl=es" target="_blank">Mvrk</a></td>
+              <td><a href="https://www.instagram.com/alvaritodiaz/?hl=es" target="_blank">Alvaro Diaz</a></td>
+              <td><a href="https://www.instagram.com/youngcister/?hl=es" target="_blank">Young Cister</a></td>
+            </tr>
+            <tr>
+              <td><img src="imagenes/badbunny.jpg" alt="Bad Bunny"></td>
+              <td><img src="imagenes/mvrk.jpg" alt="Mvrk"></td>
+              <td><img src="imagenes/alvarito.jpg" alt="Alvaro Diaz"></td>
+              <td><img src="imagenes/youngcister.jpg" alt="Young Cister"></td>
+            </tr>
+          </table>
+
+          <table class="section-table">
+            <tr>
+              <td class="section-title" colspan="4"><b>Series</b></td>
+            </tr>
+            <tr>
+              <td class="section-content" colspan="4">
+                Otro de mis pasatiempos favoritos es ver series. Me gustan muchos tipos de series, pero cuantos más capítulos tengan mejor, así puedo engancharme
+                más a la historia, por eso casi todas mis favoritas tienen muchísimos capítulos. Algunas de ellas son:
+                <ul>
+                  <li><b>Anatomía de Grey:</b> La serie sigue la vida de Meredith Grey, una cirujana que, junto a sus colegas, enfrenta retos médicos y personales en el hospital Grey Sloan Memorial. 
+                      La serie mezcla casos médicos con las complejas relaciones entre los personajes, explorando temas como el amor, la pérdida y la superación personal.</li>
+                  <li><b>Pretty Little Liars:</b> La serie sigue a cuatro amigas —Aria, Spencer, Hanna y Emily— quienes, tras la desaparición de su amiga Alison, empiezan a recibir mensajes de un misterioso 
+                      "A" que conoce sus secretos. Mientras intentan descubrir quién es "A" y qué ocurrió con Alison, enfrentan mentiras, traiciones y oscuros secretos.</li>
+                  <li><b>Breaking Bad:</b> Narra la transformación de Walter White, un profesor de química con cáncer, que empieza a producir metanfetaminas para asegurar el futuro de su familia. 
+                      Junto a su exalumno Jesse Pinkman, Walter se sumerge en el mundo del narcotráfico, convirtiéndose en un peligroso criminal mientras lidia con las consecuencias de sus decisiones.</li>
+                  <li><b>Alice In Borderland:</b> Sigue a Arisu, un joven atrapado junto a sus amigos en una versión paralela y mortal de Tokio. Para sobrevivir, deben participar en juegos 
+                      letales, cada uno con niveles de dificultad representados por cartas de una baraja. En su búsqueda de escapar, enfrentan desafíos extremos y misterios que ponen sus vidas al límite.</li>
+                </ul>
+              </td>
+            </tr>
+            <tr class="links">
+              <td><a href="https://www.disneyplus.com/es-es/series/anatomia-de-grey/6P4ZI3bWwSDj" target="_blank">Anatomía de Grey</a></td>
+              <td><a href="https://www.max.com/es/es/shows/pequenas-mentirosas" target="_blank">Pretty Little Liars</a></td>
+              <td><a href="https://www.netflix.com/pe/title/70143836" target="_blank">Breaking Bad</a></td>
+              <td><a href="https://www.netflix.com/es/title/80200575" target="_blank">Alice In Borderland</a></td>
+            </tr>
+            <tr>
+              <td><img src="imagenes/anatomiadegrey.jpg" alt="Anatomía de Grey"></td>
+              <td><img src="imagenes/pequenasmentirosas.jpg" alt="Pretty Little Liars"></td>
+              <td><img src="imagenes/breakingbad.jpg" alt="Breaking Bad"></td>
+              <td><img src="imagenes/aliceinbordeland.jpg" alt="Alice In Borderland"></td>
+            </tr>
+          </table>
+
+          <table class="section-table">
+            <tr>
+              <td class="section-title" colspan="4"><b>Anime</b></td>
+            </tr>
+            <tr>
+              <td class="section-content" colspan="4">
+                El anime es otra de las cosas que más me gustan, y aunque es algo que veo mucho por rachas, siempre está presente. Tiene buenísimas historias 
+                a las que siempre recurro cuando quiero entretenerme. Me gustan muchos subtipos, pero el shonen es mi favorito. Los que más me gustan son:
+                <ul>
+                  <li><b>Shingeki No Kyojin:</b> Muestra una humanidad atrapada en murallas para protegerse de los Titanes. Eren Yeager, tras la muerte de su madre, decide combatir a los Titanes. 
+                      Con el tiempo, descubre secretos y enemigos más complejos de lo imaginado, explorando temas de opresión y libertad.</li>
+                  <li><b>Naruto:</b> Narra la historia de Naruto Uzumaki, un joven ninja rechazado por su aldea, que sueña con convertirse en Hokage. 
+                      En su viaje, hace amigos, lucha contra numerosos enemigos y aprende el valor de la perseverancia y la amistad, 
+                      mientras busca la paz en el mundo ninja.</li>
+                  <li><b>Tokyo Ghoul:</b> Sigue a Ken Kaneki, quien se convierte en mitad ghoul, criaturas que necesitan carne humana para vivir. Kaneki lucha por mantener su humanidad 
+                      en un mundo de violencia y prejuicio, mientras intenta encajar entre humanos y ghouls.</li>
+                  <li><b>Jojo's Bizarre Adventure:</b> Sigue a distintas generaciones de la familia Joestar, cada una enfrentándose a enemigos sobrenaturales con poderes especiales. 
+                      Cada arco tiene un “JoJo” protagonista, en diversas épocas y lugares, mezclando acción, humor y elementos extravagantes.</li>
+                </ul>
+              </td>
+            </tr>
+            <tr class="links">
+              <td><a href="#">Shingeki No Kyojin</a></td>
+              <td><a href="#">Naruto</a></td>
+              <td><a href="#">Tokyo Ghoul</a></td>
+              <td><a href="#">Jojo's Bizarre Adventure</a></td>
+            </tr>
+            <tr>
+              <td><img src="imagenes/shingeki.jpg" alt="Shingeki No Kyojin"></td>
+              <td><img src="imagenes/naruto.jpg" alt="Naruto"></td>
+              <td><img src="imagenes/tokyoghoul.jpg" alt="Tokyo Ghoul"></td>
+              <td><img src="imagenes/jojos.jpg" alt="Jojo's Bizarre Adventure"></td>
+            </tr>
+          </table>
+        </main>
+      </div>
+
+      <footer>
+        <p>
+          <a href="index.html">Volver a la página de inicio</a>
+        </p>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

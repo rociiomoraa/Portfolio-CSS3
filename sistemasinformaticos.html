@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Sistemas Informáticos</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+
+    <style>
+      
+       :root {
+        
+        --bg-gradient-start: #e0f2f1; 
+        --bg-gradient-end:   #b2dfdb; 
+
+        
+        --header-footer-start: #00796b; 
+        --header-footer-end:   #009688; 
+
+        
+        --nav-gradient-start: #00796b;
+        --nav-gradient-end:   #009688;
+
+        
+        --content-gradient-start: #b2dfdb;
+        --content-gradient-end:   #e0f2f1;
+
+        
+        --text-color:     #004d40; 
+        --title-color:    #e0f2f1; 
+        --title-pastel:   #009688; 
+
+        
+        --nav-link-color: #e0f2f1;  
+        --nav-link-hover: #b2dfdb;  
+
+        
+        --box-border-radius: 25px;
+        --shadow-color: rgba(0, 0, 0, 0.15);
+      }
+
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      
+      html,
+      body {
+        width: 100%;
+        min-height: 100%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text-color);
+        
+        background: linear-gradient(
+          to bottom right,
+          var(--bg-gradient-start),
+          var(--bg-gradient-end)
+        );
+      }
+
+      
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+      .cv-wrapper {
+        width: 90%;
+        max-width: 1400px;
+        margin: 20px auto;
+        border-radius: var(--box-border-radius);
+        box-shadow: 0 0 20px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background: #ffffff;
+        animation: fadeIn 1.2s ease-in-out; 
+      }
+
+      
+      header,
+      footer {
+        background: linear-gradient(
+          to right,
+          var(--header-footer-start),
+          var(--header-footer-end)
+        );
+        border-radius: var(--box-border-radius);
+        text-align: center;
+        padding: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      footer {
+        margin-top: 20px;
+        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+      }
+      header h1 {
+        color: var(--title-color);
+        font-size: 2rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        transition: color 0.3s ease;
+      }
+      header h1:hover {
+        color: #e0f2f1;
+      }
+
+      
+      .content {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      
+      nav {
+        width: 220px;
+        background: linear-gradient(
+          to bottom left,
+          var(--nav-gradient-start),
+          var(--nav-gradient-end)
+        );
+        border-radius: var(--box-border-radius);
+        padding: 20px;
+        box-shadow: 0 4px 6px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+      }
+      nav h2 {
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+        color: var(--title-pastel);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+      nav ul {
+        list-style: disc;
+        padding-left: 1.2rem;
+      }
+      nav ul li::marker {
+        color: var(--title-pastel);
+      }
+      nav ul li {
+        margin-bottom: 10px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: var(--nav-link-color);
+        font-weight: bold;
+        text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+      nav ul li a:hover {
+        color: var(--nav-link-hover);
+        transform: scale(1.03);
+      }
+
+      
+      .contenido {
+        flex: 1;
+        background: linear-gradient(
+          135deg,
+          var(--content-gradient-start) 0%,
+          var(--content-gradient-end) 100%
+        );
+        border-radius: var(--box-border-radius);
+        padding: 20px;
+        box-shadow: 0 4px 10px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      
+      .contenido section {
+        margin-bottom: 20px;
+      }
+      .contenido h3 {
+        margin-bottom: 10px;
+        color: var(--title-pastel);
+      }
+      .contenido p,
+      .contenido ul {
+        margin-left: 20px;
+        margin-bottom: 10px;
+        line-height: 1.4;
+      }
+      .contenido ul {
+        list-style: disc;
+      }
+      .contenido ul li::marker {
+        color: #00796b; 
+      }
+      .contenido ul ul {
+        margin-left: 30px;
+      }
+
+      
+      .footer a {
+        text-decoration: none;
+        color: var(--title-color);
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        transition: color 0.3s ease;
+      }
+      .footer a:hover {
+        color: #e0f2f1;
+      }
+
+      
+      @media (max-width: 768px) {
+        .content {
+          flex-direction: column;
+        }
+        nav {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+        nav ul {
+          list-style: none;
+          padding-left: 0;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        nav ul li {
+          margin: 0 10px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="cv-wrapper">
+
+      <header>
+        <h1>Sistemas Informáticos</h1>
+      </header>
+
+      <div class="content">
+        <nav>
+          <h2>Índice</h2>
+          <ul>
+            <li><a href="curriculo.html">Curriculum</a></li>
+            <li><a href="horario.html">Horario</a></li>
+            <li><a href="datospersonales.html">Datos Personales</a></li>
+            <li>
+              <a href="modulos.html">
+                Módulos 1º DAM
+              </a>
+              <a 
+                href="#"
+                data-bs-toggle="collapse"
+                data-bs-target="#modulos1dam"
+                aria-expanded="false"
+                aria-controls="modulos1dam">
+                <span class="arrow">▼</span>
+              </a>
+              <ul class="collapse" id="modulos1dam">
+                <li><a href="programacion.html" target="_blank">Programación</a></li>
+                <li><a href="basesdedatos.html" target="_blank">Bases De Datos</a></li>
+                <li><a href="entornosdedesarrollo.html" target="_blank">Entornos De Desarrollo</a></li>
+                <li><a href="lenguajedemarcas.html" target="_blank">Lenguajes De Marcas</a></li>
+                <li><a href="sistemasinformaticos.html" target="_blank">Sistemas Informáticos</a></li>
+                <li><a href="sostenibilidad.html" target="_blank">Sostenibilidad</a></li>
+                <li><a href="digitalizacion.html" target="_blank">Digitalización</a></li>
+                <li><a href="ipe.html" target="_blank">Itinerario Personal</a></li>
+              </ul>
+            </li>
+            <li><a href="aficiones.html">Aficiones</a></li>
+            <li><a href="sitiosdereferencia.html">Sitios de Referencia</a></li>
+            <li><a href="multimedia.html">Multimedia Sobre Mí</a></li>
+            <li><a href="formulario.html">Formulario</a></li>
+            <li><a href="cambios.html">¿Cómo se hizo el trabajo?</a></li>
+          </ul>
+        </nav>
+
+        <main class="contenido">
+          <section id="introduccion">
+            <h3>Introducción.</h3>
+            <p>   La programación de la asignatura de Sistemas Informáticos suele abordar una variedad de temas relacionados con la arquitectura de computadoras, los sistemas operativos y la interacción de los programas con el hardware. Esta asignatura es común en carreras de informática, ingeniería en sistemas, ingeniería electrónica, entre otras. La programación en esta asignatura no solo se enfoca en aprender a programar, sino también en comprender cómo los sistemas informáticos funcionan a nivel interno.</p>
+        </section>
+        
+        <section id="ideasprincipales">
+            <h3>Ideas principales.</h3>
+            <ul>
+                <li><b>Conceptos básicos:</b> Definición de sistemas informáticos, componentes principales (CPU, memoria, almacenamiento, dispositivos de entrada/salida).</li>
+                <li><b>Arquitectura de computadoras:</b> Organizaciones y funciones del hardware y software en un sistema informático.</li>
+                <li><b>Historia y evolución:</b> Breve repaso sobre la evolución de los sistemas informáticos y las tendencias actuales.</li>
+            </ul>
+        </section>
+        
+        <section id="arquitectura">
+            <h3>Arquitectura de computadoras.</h3>
+            <ul>
+                <li><b>Componenetes de la arquitectura:</b> CPU, memoria RAM, bus de datos, controladores de entrada/salida.</li>
+                <li><b>Representación de datos:</b> Cómo los datos se representan en el sistema informático (binario, hexadecimal).</li>
+                <li><b>Lenguajes de bajo nivel:</b> Ensamblador, operaciones de bajo nivel (como manejo de registros, instrucciones, y ciclos de la CPU).</li>
+                <li><b>Estrcutra de la memoria:</b> Memoria caché, memoria principal, memoria secundaria.</li>
+            </ul>
+        </section>
+
+        <section id="iso">
+            <h3>Sistemas Operativos.</h3>
+            <ul>
+                <li><b>Funciones del sistema operativo:</b> Gestión de procesos, memoria, almacenamiento, y dispositivos.</li>
+                <li><b>Tipos de sistemas operativos:</b> Monotarea vs. multitarea, sistemas operativos de tiempo real, sistemas distribuidos.</li>
+                <li><b>Interacción con el hardware:</b> Cómo los sistemas operativos interactúan con el hardware para gestionar los recursos.</li>
+                <li><b>Sistemas de archivos:</b> Estructura y tipos de sistemas de archivos, cómo se gestionan los archivos en el sistema operativo.</li>
+            </ul>
+        </section>
+
+        <section id="programacion">
+            <h3>Programación de bajo nivel y control de hardware.</h3>
+            <ul>
+                <li><b>Programación en C/C++:</b> Estas son lenguas comunes en la programación de sistemas debido a su cercanía al hardware.</li>
+                <li><b>Acceso a memoria y punteros:</b> Manipulación de memoria, punteros, buffers.</li>
+                <li><b>Manejo de interrupciones:</b> Qué son y cómo se manejan las interrupciones en los sistemas.</li>
+                <li><b>Entrada/salida a bajo nivel:</b> Interacción directa con puertos y dispositivos mediante código.</li>
+            </ul>
+        </section>
+
+        <section id="redes">
+            <h3>Redes y comunicaciones.</h3>
+            <ul>
+                <li><b>Redes informáticas:</b> Protocolos de comunicación, TCP/IP, enrutamiento.</li>
+                <li><b>Sistemas distribuidos:</b> Manejo de la información a través de diferentes nodos de una red, sincronización y coherencia de datos.</li>
+                <li><b>Seguridad informática:</b> Conceptos básicos sobre seguridad en redes, criptografía, y protocolos de seguridad.</li>
+            </ul>
+        </section>
+
+        <section id="optimizacion">
+            <h3>Optimización y eficiencia de los sistemas.</h3>
+            <ul>
+                <li><b>Estrategias de optimización:</b> Optimización del uso de la memoria, gestión eficiente de procesos.</li>
+                <li><b>Paralelización:</b> Conceptos sobre la ejecución de programas en paralelo, aprovechamiento de múltiples núcleos de CPU.</li>
+                <li><b>Gestión de recursos:</b> Cómo un sistema operativo o programa distribuye los recursos entre las aplicaciones.</li>
+            </ul>
+        </section>
+
+        <section id="prácticas">
+            <h3>Prácticas y laboratorios.</h3>
+            <ul>
+                <li><b>Proyectos práticos:</b> Ejercicios de programación donde se implementen conceptos de manejo de memoria, interacciones con hardware o creación de algoritmos eficientes.</li>
+                <li><b>Simulación de sistemas:</b> Implementación de programas que simulan el comportamiento de los sistemas informáticos.</li>
+            </ul>
+        </section>
+
+        <section id="herramientas">
+            <h3>Herramientas y tecnologías utilizadas.</h3>
+            <ul>
+                <li><b>Lenguajes de programación:</b> C, C++, Python (en algunos casos), ensamblador.</li>
+                <li><b>Sistemas operativos:</b> Linux, Windows (a veces con enfoque en entornos Unix o sistemas embebidos).</li>
+                <li><b>Entornos de desarrollo:</b> IDEs como Visual Studio, GCC, entre otros.</li>
+                <li><b>Emuladores/simuladores:</b> Herramientas que permiten simular arquitecturas o redes.</li>
+            </ul>
+        </section>
+      </main>
+      </div>
+
+      <footer class="footer">
+        <p><a href="modulos.html">Volver a módulos</a></p>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Programación</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+
+    <style>
+      
+      :root {
+        
+        --bg-gradient-start: #fbe4e6; 
+        --bg-gradient-end:   #ffebee; 
+
+        
+        --header-footer-start: #b71c1c; 
+        --header-footer-end:   #f44336; 
+
+        
+        --nav-gradient-start: #b71c1c;
+        --nav-gradient-end:   #f44336;
+
+        
+        --content-gradient-start: #ffcdd2;
+        --content-gradient-end:   #ffebee;
+
+        
+        --text-color:     #4e342e; 
+        --title-color:    #ff9797; 
+        --title-pastel:   #ff9797; 
+
+        
+        --nav-link-color: #ffcdd2;  
+        --nav-link-hover: #ffebee;  
+
+        
+        --box-border-radius: 25px;
+        --shadow-color: rgba(0, 0, 0, 0.15);
+      }
+
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      
+      html,
+      body {
+        width: 100%;
+        min-height: 100%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text-color);
+        
+        background: linear-gradient(
+          to bottom right,
+          var(--bg-gradient-start),
+          var(--bg-gradient-end)
+        );
+      }
+
+      
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+      .cv-wrapper {
+        width: 90%;
+        max-width: 1400px;
+        margin: 20px auto;
+        border-radius: var(--box-border-radius);
+        box-shadow: 0 0 20px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background: #ffffff;
+        animation: fadeIn 1.2s ease-in-out; 
+      }
+
+      
+      header,
+      footer {
+        background: linear-gradient(
+          to right,
+          var(--header-footer-start),
+          var(--header-footer-end)
+        );
+        border-radius: var(--box-border-radius);
+        text-align: center;
+        padding: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      footer {
+        margin-top: 20px;
+        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+      }
+      header h1 {
+        color: var(--title-color);
+        font-size: 2rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        transition: color 0.3s ease;
+      }
+      header h1:hover {
+        color: #ffebee;
+      }
+
+      
+      .content {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      
+      nav {
+        width: 220px;
+        background: linear-gradient(
+          to bottom left,
+          var(--nav-gradient-start),
+          var(--nav-gradient-end)
+        );
+        border-radius: var(--box-border-radius);
+        padding: 20px;
+        box-shadow: 0 4px 6px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        transition: all 0.3s ease;
+      }
+      nav h2 {
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+        color: var(--title-pastel);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+      nav ul {
+        list-style: disc;
+        padding-left: 1.2rem;
+      }
+      nav ul li::marker {
+        color: var(--title-pastel);
+      }
+      nav ul li {
+        margin-bottom: 10px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: var(--nav-link-color);
+        font-weight: bold;
+        text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+      nav ul li a:hover {
+        color: var(--nav-link-hover);
+        transform: scale(1.03);
+      }
+
+      
+      .contenido {
+        flex: 1;
+        background: linear-gradient(
+          135deg,
+          var(--content-gradient-start) 0%,
+          var(--content-gradient-end) 100%
+        );
+        border-radius: var(--box-border-radius);
+        padding: 20px;
+        box-shadow: 0 4px 10px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      
+      .contenido section {
+        margin-bottom: 20px;
+      }
+      .contenido h3 {
+        margin-bottom: 10px;
+        color: var(--title-pastel);
+      }
+      .contenido p,
+      .contenido ul {
+        margin-left: 20px;
+        margin-bottom: 10px;
+        line-height: 1.4;
+      }
+      .contenido ul {
+        list-style: disc;
+      }
+      .contenido ul li::marker {
+        color: #b71c1c; 
+      }
+      .contenido ul ul {
+        margin-left: 30px;
+      }
+
+      
+      .footer a {
+        text-decoration: none;
+        color: var(--title-color);
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        transition: color 0.3s ease;
+      }
+      .footer a:hover {
+        color: #ffebee;
+      }
+
+      
+      @media (max-width: 768px) {
+        .content {
+          flex-direction: column;
+        }
+        nav {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+        nav ul {
+          list-style: none;
+          padding-left: 0;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        nav ul li {
+          margin: 0 10px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="cv-wrapper">
+
+      <header>
+        <h1>Programación</h1>
+      </header>
+
+      <div class="content">
+
+        <nav>
+          <h2>Índice</h2>
+          <ul>
+            <li><a href="curriculo.html">Curriculum</a></li>
+            <li><a href="horario.html">Horario</a></li>
+            <li><a href="datospersonales.html">Datos Personales</a></li>
+            <li>
+              <a href="modulos.html">
+                Módulos 1º DAM
+              </a>
+              <a 
+                href="#"
+                data-bs-toggle="collapse"
+                data-bs-target="#modulos1dam"
+                aria-expanded="false"
+                aria-controls="modulos1dam">
+                <span class="arrow">▼</span>
+              </a>
+              <ul class="collapse" id="modulos1dam">
+                <li><a href="programacion.html" target="_blank">Programación</a></li>
+                <li><a href="basesdedatos.html" target="_blank">Bases De Datos</a></li>
+                <li><a href="entornosdedesarrollo.html" target="_blank">Entornos De Desarrollo</a></li>
+                <li><a href="lenguajedemarcas.html" target="_blank">Lenguajes De Marcas</a></li>
+                <li><a href="sistemasinformaticos.html" target="_blank">Sistemas Informáticos</a></li>
+                <li><a href="sostenibilidad.html" target="_blank">Sostenibilidad</a></li>
+                <li><a href="digitalizacion.html" target="_blank">Digitalización</a></li>
+                <li><a href="ipe.html" target="_blank">Itinerario Personal</a></li>
+              </ul>
+            </li>
+            <li><a href="aficiones.html">Aficiones</a></li>
+            <li><a href="sitiosdereferencia.html">Sitios de Referencia</a></li>
+            <li><a href="multimedia.html">Multimedia Sobre Mí</a></li>
+            <li><a href="formulario.html">Formulario</a></li>
+            <li><a href="cambios.html">¿Cómo se hizo el trabajo?</a></li>
+          </ul>
+        </nav>
+
+        <main class="contenido">
+          <section id="introduccion">
+            <h3>Introducción.</h3>
+            <p> La programación suele ser la asignatura clave en los primeros semestres de este ciclo formativo. El objetivo de esta asignatura es proporcionar los fundamentos de la programación necesarios para desarrollar aplicaciones informáticas, tanto para dispositivos móviles como para entornos de escritorio.</p>
+        </section>
+        
+        <section id="ideasprevias">
+            <h3>Ideas principales.</h3>
+            <ul>
+                <li><b>Conceptos básicos:</b> Qué es la programación, el ciclo de desarrollo de software, y los tipos de programas.</li>
+                <li><b>Lenguajes de programación:</b> Diferencia entre lenguajes de bajo y alto nivel. Introducción a los lenguajes de programación más comunes (como Python, C, Java, JavaScript, etc.).</li>
+                <li><b>Compiladores e intérpretes:</b> Explicación del proceso de compilación y ejecución de un programa.</li>
+                <li><b>Entornos de desarrollo (IDE):</b> Herramientas y programas que facilitan la escritura, depuración y ejecución de código (por ejemplo, Visual Studio Code, PyCharm, Eclipse).</li>
+            </ul>
+        </section>
+        
+        <section id="sintaxis">
+            <h3>Sintaxis y estructuras básicas.</h3>
+            <ul>
+                <li><b>Sintaxis básica:</b> Declaración de variables, tipos de datos básicos (enteros, flotantes, cadenas, booleanos).</li>
+                <li><b>Operadores:</b> Operadores aritméticos, lógicos, de comparación, y de asignación.</li>
+                <li><b>Estructuras de control:</b></li>
+                <ul>
+                    <li><b>Condicionales:</b> Uso de if, else, elif (en Python) para la toma de decisiones.</li>
+                    <li><b>Bucles:</b> Uso de bucles for, while y do-while para repetir operaciones.</li>
+                    <li><b>Sentencias de control:</b> Uso de break, continue y return.</li>
+                </ul>
+            </ul>
+        </section>
+
+        <section id="funciones">
+            <h3>Funciones y procedimientos.</h3>
+            <ul>
+                <li><b>Definición de funciones:</b> Cómo crear y usar funciones para modularizar el código.</li>
+                <li><b>Parámetros y argumentos:</b> Cómo pasar datos a las funciones (por valor y por referencia).</li>
+                <li><b>Valor de retorno:</b> Uso de la palabra clave return para devolver resultados de una función.</li>
+                <li><b>Funciones recursivas:</b> Qué es la recursión y cómo usarla en problemas como el cálculo de factoriales, Fibonacci, etc.</li>
+            </ul>
+        </section>
+
+        <section id="estructuras">
+            <h3>Estructuras de datos básicas.</h3>
+            <ul>
+                <li><b>Arrays y listas:</b> Cómo declarar, inicializar y manipular arreglos o listas de elementos.</li>
+                <li><b>Cadenas de texto:</b> Manipulación de strings, funciones comunes para concatenar, dividir y modificar cadenas.</li>
+                <li><b>Manejo de índices:</b> Acceso y modificación de elementos dentro de estas estructuras.</li>
+            </ul>
+        </section>
+
+        <section id="algortimos">
+            <h3>Algoritmos básicos.</h3>
+            <ul>
+                <li><b>Algoritmos de búsqueda:</b> Búsqueda secuencial, búsqueda binaria (en listas ordenadas).</li>
+                <li><b>Algoritmos de ordenación:</b> Algoritmos como burbuja, selección, inserción, quicksort y mergesort.</li>
+                <li><b>Análisis de la complejidad:</b> Introducción a la notación Big O para evaluar la eficiencia de los algoritmos.</li>
+            </ul>
+        </section>
+
+        <section id="poo">
+            <h3>Programación Orientada a Objetos.</h3>
+            <ul>
+                <li><b>Conceptos fundamentales de la POO:</b> Clases, objetos, atributos y métodos.</li>
+                <li><b>Encapsulamiento:</b> Cómo proteger los datos de una clase utilizando modificadores de acceso (público, privado, protegido).</li>
+                <li><b>Herencia:</b> Uso de clases base y derivadas para crear jerarquías de clases.</li>
+                <li><b>Polimorfismo:</b> El concepto de que una misma interfaz puede tener múltiples implementaciones.</li>
+                <li><b>Abstracción:</b> Cómo ocultar detalles complejos y proporcionar interfaces sencillas para interactuar con objetos.</li>
+            </ul>
+        </section>
+
+        <section id="archivose/s">
+            <h3>Manejo de archivos y entrada/salida.</h3>
+            <ul>
+                <li><b>Lectura y escritura de archivos:</b> Cómo manejar archivos de texto (abrir, leer, escribir y cerrar archivos).</li>
+                <li><b>Archivos binarios:</b> Cómo trabajar con archivos binarios y cómo serializar y deserializar objetos.</li>
+                <li><b>Entrada estándar (stdin):</b>Cómo leer datos del usuario desde la consola.</li>
+                <li><b>Salida estándar (stdout):</b> Cómo mostrar datos en la consola o interfaz gráfica.</li>
+            </ul>
+        </section>
+
+        <section id="errores">
+            <h3>Manejo de errores y excepciones.</h3>
+            <ul>
+                <li><b>Errores de compilación vs. errores en tiempo de ejecución:</b> Diferencias entre errores que ocurren al compilar y cuando el programa ya está en ejecución.</li>
+                <li><b>Excepciones:</b>Manejo de excepciones con estructuras como try, catch, finally.</li>
+                <li><b>Trazas y depuración:</b> Uso de herramientas de depuración para identificar y corregir errores en el código.</li>
+            </ul>
+        </section>
+
+        <section id="estructurasdatos">
+            <h3>Estrcuturas de datos avanzadas.</h3>
+            <ul>
+                <li><b>Pilas (Stacks):</b> Implementación y uso de pilas, y su aplicación en tareas como deshacer/rehacer.</li>
+                <li><b>Colas (Queues):</b> Implementación y uso de colas, y su aplicación en procesos de gestión de tareas.</li>
+                <li><b>Listas enlazadas:</b> Concepto de listas dinámicas con nodos, y cómo insertar, eliminar y recorrer elementos.</li>
+                <li><b>Árboles y grafos:</b> Estructuras jerárquicas y no jerárquicas, y su uso en representaciones de datos complejos.</li>
+            </ul>
+        </section>
+
+        <section id="herramientas">
+            <h3>Herramientas y tecnologías utilizadas</h3>
+            <ul>
+                <li><b>Lenguajes de programación:</b> Python, C, C++, Java, JavaScript, etc.</li>
+                <li><b>Entornos de desarrollo:</b> Visual Studio Code, PyCharm, Eclipse, IntelliJ IDEA.</li>
+                <li><b>Sistemas de control de versiones:</b> Git (y plataformas como GitHub o GitLab para gestionar proyectos en equipo).</li>
+                <li><b>Herramientas de depuración:</b> Depuradores integrados en IDEs, como los de PyCharm, Visual Studio, o GDB.</li>
+            </ul>
+        </section>        
+      </main>
+      </div>
+
+      <footer class="footer">
+        <p><a href="modulos.html">Volver a módulos</a></p>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

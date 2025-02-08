@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Datos Personales</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+
+    <style>
+      
+      :root {
+        
+        --bg-gradient-start: #cfe8c9; 
+        --bg-gradient-end:   #b0e0b3; 
+
+        
+        --header-footer-start: #a8d8a1;
+        --header-footer-end:   #b0e0b3;
+
+        
+        --nav-gradient-start: #a8d8a1;
+        --nav-gradient-end:   #b0e0b3;
+
+        
+        --content-gradient-start: #cfe8c9;
+        --content-gradient-end:   #a8d8a1;
+
+        
+        --text-color:        #3a4f3a; 
+        --nav-link-color:    #2b6f2f;
+        --nav-link-hover:    #1e5022;
+
+        
+        --title-color:       #2b6f2f; 
+        --title-pastel:      #2b6f2f; 
+
+        
+        --box-border-radius: 25px;
+        --shadow-color:      rgba(0, 0, 0, 0.15);
+      }
+
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      
+      html, body {
+        width: 100%;
+        min-height: 100%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--text-color);
+        background: linear-gradient(
+          to bottom right,
+          var(--bg-gradient-start),
+          var(--bg-gradient-end)
+        );
+      }
+
+      
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+      .cv-wrapper {
+        width: 90%;
+        max-width: 1200px;
+        margin: 20px auto;
+        border-radius: var(--box-border-radius);
+        box-shadow: 0 0 20px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        animation: fadeIn 1.2s ease-in-out;
+        background: #ffffff; 
+      }
+
+      
+      header,
+      footer {
+        background: linear-gradient(
+          to right,
+          var(--header-footer-start),
+          var(--header-footer-end)
+        );
+        border-radius: var(--box-border-radius);
+        text-align: center;
+        padding: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      footer {
+        margin-top: 20px;
+        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      header h1 {
+        color: var(--title-color);
+        font-size: 1.8rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        transition: color 0.3s ease;
+      }
+      header h1:hover {
+        color: #e1ffe5; 
+      }
+
+      
+      .content {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      
+      nav {
+        width: 220px;
+        background: linear-gradient(
+          to bottom left,
+          var(--nav-gradient-start),
+          var(--nav-gradient-end)
+        );
+        border-radius: var(--box-border-radius);
+        padding: 20px;
+        box-shadow: 0 4px 6px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+      }
+
+      nav h2 {
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+        color: var(--title-pastel);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      nav ul {
+        list-style: disc;
+        padding-left: 1.2rem;
+      }
+      nav ul li::marker {
+        color: var(--title-pastel);
+      }
+      nav ul li {
+        margin-bottom: 10px;
+      }
+      nav ul li a {
+        text-decoration: none;
+        color: var(--nav-link-color);
+        font-weight: bold;
+        text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1);
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+      nav ul li a:hover {
+        color: var(--nav-link-hover);
+        transform: scale(1.02);
+      }
+
+      
+      .arrow {
+        display: inline-block;
+        margin-left: 5px;
+        transition: transform 0.3s ease;
+      }
+      nav ul li a[aria-expanded="true"] .arrow {
+        transform: rotate(180deg);
+      }
+
+      nav ul li ul {
+        margin-top: 10px;
+        padding-left: 15px;
+      }
+      nav ul li ul li {
+        margin-bottom: 8px;
+      }
+
+      
+      main {
+        flex: 1;
+        background: linear-gradient(
+          135deg,
+          var(--content-gradient-start) 0%,
+          var(--content-gradient-end) 100%
+        );
+        border-radius: var(--box-border-radius);
+        padding: 20px;
+        box-shadow: 0 4px 10px var(--shadow-color);
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+        color: var(--title-pastel);
+        text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.2);
+      }
+
+      
+      #direccion .direccion-content p {
+        margin-bottom: 10px;
+      }
+
+      
+      .center-image {
+        display: block;
+        margin: 0 auto;
+        width: 300px;  
+        height: auto;
+        border-radius: 8px;
+      }
+
+      
+      .map-container {
+        margin-top: 10px;
+        text-align: center; 
+      }
+      .map-container iframe {
+        display: block;
+        margin: 0 auto;
+        width: 500px; 
+        height: 350px;
+        border: 0;
+        border-radius: 8px;
+      }
+      .map-container a {
+        display: inline-block;
+        margin-top: 5px;
+        color: var(--nav-link-color);
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+      .map-container a:hover {
+        color: var(--nav-link-hover);
+      }
+
+      
+      footer a {
+        text-decoration: none;
+        color: var(--title-color);
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        transition: color 0.3s ease;
+      }
+      footer a:hover {
+        color: #efffea;
+      }
+
+      
+      @media (max-width: 768px) {
+        .content {
+          flex-direction: column;
+        }
+        nav {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+        nav ul {
+          list-style: none;
+          padding-left: 0;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        nav ul li {
+          margin: 0 10px;
+        }
+        .map-container iframe {
+          width: 100%;
+          max-width: 350px; 
+          height: 300px;
+        }
+        .center-image {
+          width: 250px; 
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="cv-wrapper">
+
+      <header>
+        <h1>Datos Personales</h1>
+      </header>
+
+      <div class="content">
+        <nav>
+          <h2>Índice</h2>
+          <ul>
+            <li><a href="curriculo.html">Curriculum</a></li>
+            <li><a href="horario.html">Horario</a></li>
+            <li><a href="datospersonales.html">Datos Personales</a></li>
+            <li>
+              <a href="modulos.html">
+                Módulos 1º DAM
+              </a>
+              <a 
+                href="#"
+                data-bs-toggle="collapse"
+                data-bs-target="#modulos1dam"
+                aria-expanded="false"
+                aria-controls="modulos1dam">
+                <span class="arrow">▼</span>
+              </a>
+              <ul class="collapse" id="modulos1dam">
+                <li><a href="programacion.html" target="_blank">Programación</a></li>
+                <li><a href="basesdedatos.html" target="_blank">Bases De Datos</a></li>
+                <li><a href="entornosdedesarrollo.html" target="_blank">Entornos De Desarrollo</a></li>
+                <li><a href="lenguajedemarcas.html" target="_blank">Lenguajes De Marcas</a></li>
+                <li><a href="sistemasinformaticos.html" target="_blank">Sistemas Informáticos</a></li>
+                <li><a href="sostenibilidad.html" target="_blank">Sostenibilidad</a></li>
+                <li><a href="digitalizacion.html" target="_blank">Digitalización</a></li>
+                <li><a href="ipe.html" target="_blank">Itinerario Personal</a></li>
+              </ul>
+            </li>
+            <li><a href="aficiones.html">Aficiones</a></li>
+            <li><a href="sitiosdereferencia.html">Sitios de Referencia</a></li>
+            <li><a href="multimedia.html">Multimedia Sobre Mí</a></li>
+            <li><a href="formulario.html">Formulario</a></li>
+            <li><a href="cambios.html">¿Cómo se hizo el trabajo?</a></li>
+          </ul>
+        </nav>
+
+        <main>
+          <section id="direccion">
+            <div class="section-title">Dirección</div>
+            <div class="direccion-content">
+              <p><strong>Calle:</strong> XXXXXXXXXXXXXXXXXXXXX</p>
+              <p><strong>Puerta:</strong> XXXXXXXXXXXXXX</p>
+              <p><strong>Ciudad:</strong> Huelva</p>
+              <p><strong>Código Postal:</strong> XXXXX</p>
+              <p><strong>Fotografía:</strong></p>
+              <img 
+                src="imagenes/casa.jpg" 
+                alt="Foto de mi casa"
+                class="center-image"
+              />
+            </div>
+          </section>
+
+          <section id="habitacion">
+            <div class="section-title">Habitación</div>
+            <div class="section-content">
+              <img 
+                src="imagenes/habitación.jpg" 
+                alt="Foto de mi habitación"
+                class="center-image"
+              />
+              <br>
+              <p>Esta es mi habitación, donde paso la mayor parte de mi tiempo estudiando y trabajando.</p>
+            </div>
+          </section>
+
+          <section id="mapa">
+            <div class="section-title">Ubicación en Google Maps</div>
+            <div class="map-container">
+              <iframe 
+              src="https://www.google.com/maps?q=Huelva,+España&output=embed" 
+              width="600" 
+              height="450" 
+              style="border:0;" 
+              allowfullscreen 
+              loading="lazy">
+          </iframe>
+              <a 
+                href="https://maps.app.goo.gl/ALefNGGdNfhJAguR9" 
+                target="_blank"
+              >
+                Ver en Google Maps
+              </a>
+            </div>
+          </section>
+        </main>
+      </div>
+
+      <footer>
+        <p>
+          <a href="index.html">Volver a la página de inicio</a>
+        </p>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
