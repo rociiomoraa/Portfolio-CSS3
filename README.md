@@ -41,7 +41,7 @@ Si quieres ver mi portafolio en acción, sigue estos pasos:
    ```
 2. **Abre `index.html`** en tu navegador favorito 🌐
 
---
+---
 
 ## 🛠️ Tecnologías que usé
 🔹 HTML5  
@@ -58,6 +58,7 @@ Este proyecto está bajo la licencia **MIT**, lo que significa que puedes utiliz
 - 👤 **Rocío Mora García**  
 - 📧 **rocio.mora.garcia02@gmail.com**  
 - 🌐 [Mi Perfil de GitHub](https://github.com/rociimoraa)
+
 
 💡 *Gracias por pasarte por aquí. ¡Espero que disfrutes explorando mi portafolio tanto como yo disfruté creándolo!* 🚀
 
